@@ -14,5 +14,11 @@ for (var i = 0; i < AllFilms.length; ++i) {
     // Append the element to the end of Array list
     dropdownFilms[dropdownFilms.length] = new Option(AllFilms[i].title, AllFilms[i]);
 };
+
+// document.getElementById("selectFilm").addEventListener ('onselect', function () {
+// AllFilms.forEach(element => console.log(element));
+// });
+
+
 // console.log()
 // console.log(example, data);
