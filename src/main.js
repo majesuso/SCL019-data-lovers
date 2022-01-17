@@ -12,12 +12,15 @@ var dropdownFilms = document.getElementById("selectFilm");
 // Loop through the array
 for (var i = 0; i < AllFilms.length; ++i) {
     // Append the element to the end of Array list
-    dropdownFilms[dropdownFilms.length] = new Option(AllFilms[i].title, AllFilms[i]);
+    let arrayFilms = AllFilms[i];
+    dropdownFilms[dropdownFilms.length] = new Option(arrayFilms.title, arrayFilms);
 };
 
-// document.getElementById("selectFilm").addEventListener ('onselect', function () {
-// AllFilms.forEach(element => console.log(element));
-// });
+dropdownFilms.addEventListener ('change', function () {
+    var valueFilm = dropdownFilms.options[dropdownFilms.selectedIndex].value;
+    var text = dropdownFilms.options[dropdownFilms.selectedIndex].text;
+    console.log(text);
+});
 
 
 // console.log()
