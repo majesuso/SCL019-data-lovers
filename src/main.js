@@ -44,11 +44,4 @@ dropDownGender.addEventListener('change', function (showByGender) {
         }
 
     }
-       /* let arrayCharacters = allCharacter[i];
-        //console.log(arrayCharacters);
-        if (dropDownGender.value == "Female") {
-            console.log(arrayCharacters.filter(element => element.gender == "Female"))
-        }
-        if ()*/
-
 });
