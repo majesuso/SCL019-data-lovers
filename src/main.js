@@ -12,9 +12,6 @@ for (let i = 0; i < allFilms.length; ++i) {
     let arrayFilms = allFilms[i];
     //console.log(arrayFilms);
     dropdownFilms[dropdownFilms.length] = new Option(arrayFilms.title, arrayFilms.id);
-
-    let arrayCharacters = arrayFilms.people;
-    //console.log(arrayCharacters);
 };
 
 dropdownFilms.addEventListener('change', function () {
@@ -32,7 +29,7 @@ dropDownGender.addEventListener('change', function (showByGender) {
 
     for (let i = 0; i < allData.length; ++i) {
         let arrayCharacters = allData[i].people;
-        //console.log(arrayCharacters);
+        
         if (valueCharacter == "Female"){
             console.log(arrayCharacters.filter(element => element.gender == "Female"))
         }
