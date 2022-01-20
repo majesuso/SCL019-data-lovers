@@ -1,10 +1,7 @@
 import data from './data/ghibli/ghibli.js';
 
-let allFilms = data.films;
-console.log(allFilms);
-
-// Get dropdown element from DOM
-let dropdownFilms = document.getElementById("selectFilm");
+let allFilms = data.films; // Get data ghibli.js
+let dropdownFilms = document.getElementById("selectFilm"); // Get dropdown element from DOM
 
 // Loop through the array
 for (let i = 0; i < allFilms.length; ++i) {
@@ -16,29 +13,31 @@ for (let i = 0; i < allFilms.length; ++i) {
 
 dropdownFilms.addEventListener('change', function () {
     let valueFilm = dropdownFilms.options[dropdownFilms.selectedIndex].value;
-    let resultado = allFilms.filter(element => element.id == valueFilm);
-    console.log(resultado);
+    let filmSelected = allFilms.filter(element => element.id == valueFilm);
+
+    for (let i = 0; i < filmSelected.length; ++i) {
+        let filmArray = filmSelected[i],
+            titleFilm = filmArray.title,
+            descriptionFilm = filmArray.description,
+            directorFilm = filmArray.director,
+            posterFilm = filmArray.poster,
+            dateFilm = filmArray.release_date,
+            rtScoreFilm = filmArray.rt_score;
+
+        document.write("Título: " + titleFilm  + "<br>" + "Descripción: " + descriptionFilm + "<br>" + "Director: " + directorFilm + "<br>" + "Año: " + dateFilm + "<br>" + rtScoreFilm);
+    }
 });
 
-let dropDownGender = document.getElementById("selectGender");
+//let dropDownGender = document.getElementById("selectGender");
 
-dropDownGender.addEventListener('change', function (showByGender) {
+/* dropDownGender.addEventListener('change', function () {
 
     let allData = data.films,
         valueCharacter = dropDownGender.value;
 
     for (let i = 0; i < allData.length; ++i) {
         let arrayCharacters = allData[i].people;
-        
-        if (valueCharacter == "Female"){
-            console.log(arrayCharacters.filter(element => element.gender == "Female"))
-        }
-        if (valueCharacter == "Male"){
-            console.log(arrayCharacters.filter(element => element.gender == "Male")) 
-        }
-        if (valueCharacter == "NA"){
-            console.log(arrayCharacters.filter(element => element.gender == "NA"))
-        }
-
+        console.log(arrayCharacters.filter(element => element.gender == valueCharacter));
     }
 });
+*/

@@ -1,44 +1,47 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Data Lovers</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <nav>
-      <!-- navigation section for tabs or main menu -->
-    </nav>
-    <header class="main-header">
-    <!-- here goes bienvenida y Hayao y resena -->
-    </header>
-    <section>
-      <!-- here goes busqador y -->
-    </section>
-    <main>
-       <!-- posters and field para filtrar y ordenar -->
-       <form id="DropDownFilms">
-         <label for="Peliculas">Películas</label>
-        <select id="selectFilm">
-          <option>--</option>
-        </select>
-      </form>
-      <form id=dropDownCharacter>
-        <label for="Personajes">Personajes</label>
-        <select name="selectGender" id="selectGender">
-          <option>--</option>
-          <option value="Female">Femenino</option>
-          <option value="Male">Masculino</option>
-          <option value="NA">Desconocido</option>
-        </select>
-      </form>
 
-    </main>
-    <footer class="main-footer">
-      <!-- credits, copywrights, logo Ghibli, redes sociales -->
-    </footer>
-    
-    <div id="root"></div>
-    <script src="main.js" type="module"></script>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <title>Data Lovers</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <nav>
+    <!-- navigation section for tabs or main menu -->
+  </nav>
+  <header class="main-header">
+    <!-- here goes bienvenida y Hayao y resena -->
+  </header>
+  <section>
+    <!-- here goes busqador y -->
+  </section>
+  <main>
+    <!-- posters and field para filtrar y ordenar -->
+    <form id="DropDownFilms">
+      <label for="peliculas">Películas</label>
+      <select name="selectFilm" id="selectFilm">
+        <option>--</option>
+      </select>
+    </form>
+    <form id=dropDownCharacter>
+      <label for="personajes">Personajes</label>
+      <select name="selectGender" id="selectGender">
+        <option>--</option>
+        <option value="Female">Femenino</option>
+        <option value="Male">Masculino</option>
+        <option value="NA">Desconocido</option>
+      </select>
+    </form>
+
+  </main>
+  <footer class="main-footer">
+    <!-- credits, copywrights, logo Ghibli, redes sociales -->
+  </footer>
+
+  <div id="root"></div>
+  <script src="main.js" type="module"></script>
+</body>
+
 </html>
