@@ -24,9 +24,35 @@ dropdownFilms.addEventListener('change', function () {
             dateFilm = filmArray.release_date,
             rtScoreFilm = filmArray.rt_score;
 
-        document.write("Título: " + titleFilm  + "<br>" + "Descripción: " + descriptionFilm + "<br>" + "Director: " + directorFilm + "<br>" + "Año: " + dateFilm + "<br>" + rtScoreFilm);
+        // document.write("Título: " + titleFilm  + "<br>" + "Descripción: " + descriptionFilm + "<br>" + "Director: " + directorFilm + "<br>" + "Año: " + dateFilm + "<br>" + rtScoreFilm);
+        document.getElementById("TarjetaFilmP").innerHTML = ("Título: " + titleFilm  + "<br>" + "Descripción: " + descriptionFilm + "<br>" + "Director: " + directorFilm + "<br>" + "Año: " + dateFilm + "<br>" + rtScoreFilm);
+        document.getElementById("TarjetaFilmPoster").src = posterFilm;
+        modal.style.display = "block";
     }
+ 
 });
+
+//usando y llamando modal box
+// Get the modal
+var modal = document.getElementById("myModal");
+// Get the button that opens the modal
+// var btn = document.getElementById("myBtn");
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+// When the user clicks on the button, open the modal
+// btn.onclick = function() {
+//   modal.style.display = "block";
+// }
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
 
 //let dropDownGender = document.getElementById("selectGender");
 
