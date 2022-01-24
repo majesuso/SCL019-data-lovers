@@ -30,7 +30,8 @@ dropdownFilms.addEventListener('change', function () {
         document.getElementById("TarjetaFilmP").innerHTML = descriptionFilm;
         document.getElementById("TarjetaFilmPoster").src = posterFilm;
         document.getElementById("FilmTitle").innerHTML = titleFilm;
-        document.getElementById("DirectorYear").innerHTML = (directorFilm + ", " + dateFilm);
+        document.getElementById("Director").innerHTML = directorFilm;
+        document.getElementById("myYear").innerHTML = dateFilm;
         document.getElementById("RT_Score").innerHTML = rtScoreFilm;
         modal.style.display = "block";
 
