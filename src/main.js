@@ -48,10 +48,8 @@ dropdownFilms.addEventListener('change', function () {
                 <p>${nameCharacter}</p>
                 </div>`;
             }
-
+            
             charContainer.innerHTML += imgChar(arrayCharacters[i].img)
-            //let imgCharacter = arrayCharacters[i].img,
-            //nameCharacter = arrayCharacters[i].name;
         }
     }
 
