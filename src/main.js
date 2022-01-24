@@ -11,7 +11,7 @@ for (let i = 0; i < allFilms.length; ++i) {
     dropdownFilms[dropdownFilms.length] = new Option(arrayFilms.title, arrayFilms.id);
 };
 
-dropdownFilms.addEventListener('change', function (showFilm) {
+dropdownFilms.addEventListener('change', function () {
     let valueFilm = dropdownFilms.options[dropdownFilms.selectedIndex].value; //valor de Film sera igual al valor del indice seleccionado
     let filmSelected = allFilms.filter(element => element.id == valueFilm); // Filtra según el id == valor del indice seleccionado
 
@@ -27,7 +27,6 @@ dropdownFilms.addEventListener('change', function (showFilm) {
             dateFilm = filmArray.release_date,
             rtScoreFilm = filmArray.rt_score;
 
-        // document.write("Título: " + titleFilm  + "<br>" + "Descripción: " + descriptionFilm + "<br>" + "Director: " + directorFilm + "<br>" + "Año: " + dateFilm + "<br>" + rtScoreFilm);
         document.getElementById("TarjetaFilmP").innerHTML = descriptionFilm;
         document.getElementById("TarjetaFilmPoster").src = posterFilm;
         document.getElementById("FilmTitle").innerHTML = titleFilm;
@@ -35,8 +34,26 @@ dropdownFilms.addEventListener('change', function (showFilm) {
         document.getElementById("myYear").innerHTML = dateFilm;
         document.getElementById("RT_Score").innerHTML = rtScoreFilm;
         modal.style.display = "block";
+
+        let arrayCharacters = filmArray.people
+        for (let i = 0; i < arrayCharacters.length; ++i) {
+
+            let nameCharacter = arrayCharacters[i].name;
+            const charContainer = document.getElementById("Characters");
+
+            const imgChar = (arrayCharacters) => {
+                return `<div class="imgChar">
+                <img src="${arrayCharacters}" width="150">
+                </div>
+                <div class="nameChar">
+                <p>${nameCharacter}</p>
+                </div>`;
+            }
+            
+            charContainer.innerHTML += imgChar(arrayCharacters[i].img)
+        }
     }
- 
+
 });
 
 //usando y llamando modal box
@@ -51,15 +68,16 @@ var span = document.getElementsByClassName("close")[0];
 //   modal.style.display = "block";
 // }
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
+span.onclick = function () {
+    modal.style.display = "none";
 }
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
 }
+
 
 //let dropDownGender = document.getElementById("selectGender");
 
@@ -74,3 +92,5 @@ window.onclick = function(event) {
     }
 });
 */
+
+
