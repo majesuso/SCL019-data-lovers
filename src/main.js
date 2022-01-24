@@ -25,8 +25,11 @@ dropdownFilms.addEventListener('change', function () {
             rtScoreFilm = filmArray.rt_score;
 
         // document.write("Título: " + titleFilm  + "<br>" + "Descripción: " + descriptionFilm + "<br>" + "Director: " + directorFilm + "<br>" + "Año: " + dateFilm + "<br>" + rtScoreFilm);
-        document.getElementById("TarjetaFilmP").innerHTML = ("Título: " + titleFilm  + "<br>" + "Descripción: " + descriptionFilm + "<br>" + "Director: " + directorFilm + "<br>" + "Año: " + dateFilm + "<br>" + rtScoreFilm);
+        document.getElementById("TarjetaFilmP").innerHTML = descriptionFilm;
         document.getElementById("TarjetaFilmPoster").src = posterFilm;
+        document.getElementById("FilmTitle").innerHTML = titleFilm;
+        document.getElementById("DirectorYear").innerHTML = (directorFilm + ", " + dateFilm);
+        document.getElementById("RT_Score").innerHTML = rtScoreFilm;
         modal.style.display = "block";
     }
  

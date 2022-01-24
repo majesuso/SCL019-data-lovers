@@ -1,8 +1,38 @@
-.MainDesign {
-    background-color: #111322;
-    font-family: Open, Arial, Helvetica, sans-serif;
-    color:aliceblue; 
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,700,800');
+
+html, body{
+  margin: 0;
+  background: black;
+  font-family: 'Montserrat', helvetica, arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color:aliceblue;
 }
+
+/* .MainDesign {
+    background-color: #111322;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    color:aliceblue; 
+} */
+
+h1{
+  color: #fff;
+  font-weight: 400;
+}
+
+h2{
+  color: #9ac7fa;
+  font-weight: 400;
+}
+
+svg {
+  fill:#ff2222;
+}
+
+.RT_rate{
+  color: #ff2222;
+}
+
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
@@ -20,11 +50,20 @@
   /* Modal Content/Box */
   .modal-content {
     background-color: #111322;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
+  }
+
+  .FilmInfo {
+    display: flex;
+    /* padding:20px; */
+  }
+
+  .Img {
+    padding: 20 px;
   }
   
   /* The Close Button */
