@@ -19,6 +19,40 @@ h2{
   font-weight: 400;
 }
 
+<<<<<<< HEAD
+=======
+.RT_icon {
+  fill: rgb(148, 148, 148);
+}
+
+.RT_icon:hover {
+  fill: #ff2222;
+}
+
+.RT_rate {
+  color: rgb(148, 148, 148);
+}
+
+.RT_rate:hover {
+  color: #ff2222;
+}
+
+.ImgContainers {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 20px;
+}
+
+.EachPoster {
+  background:cover;
+  border: 1px #111322;
+}
+
+>>>>>>> 7972488e502cdd264ce775fc9788ef55b703000c
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
@@ -57,10 +91,16 @@ h2{
 
   .RottenTomatoes {
     display: flex;
+
     flex-direction: row;
     align-items:center;
+<<<<<<< HEAD
     gap: 25px; 
     margin-top: 50px; 
+=======
+    gap: 25px;  
+
+>>>>>>> 7972488e502cdd264ce775fc9788ef55b703000c
   }
 
   .icon_Rtscore{
