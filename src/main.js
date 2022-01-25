@@ -2,10 +2,9 @@ import data from './data/ghibli/ghibli.js';
 
 let allFilms = data.films; // Get data ghibli.js
 
-window.addEventListener("load", () => {
+window.addEventListener("load",() => {
     for (let i = 0; i < allFilms.length; ++i) {
-        let posterFilm = allFilms[i].poster
-        document.getElementById("Posters").innerHTML += `<div class = "EachPoster"><img src="${posterFilm}"></div>`;
+        document.getElementById("Posters").innerHTML += `<div class = "EachPoster"><img src="${allFilms[i].poster}"></div>`;
     }
 });
 
@@ -13,6 +12,8 @@ let dropdownSort = document.getElementById("selectSort");
 dropdownSort.addEventListener('change', function () {
 
 });
+
+
 
 let dropdownFilms = document.getElementById("selectFilm"); // Get dropdown element from DOM
 
@@ -50,12 +51,11 @@ dropdownFilms.addEventListener('change', function () {
 
         let arrayCharacters = filmArray.people //Toma la propiedad de people del array de filmSelected 
         //Recorre el array de people del film seleccionado
+        let nameCharacter = arrayCharacters[i].name; //Contiene propiedad name del array
+        const charContainer = document.getElementById("Characters"); //Llama a un div de html
+        charContainer.innerHTML = ""; // vacia este container before use
+
         for (let i = 0; i < arrayCharacters.length; ++i) {
-
-            let nameCharacter = arrayCharacters[i].name; //Contiene propiedad name del array
-            const charContainer = document.getElementById("Characters"); //Llama a un div de html
-            charContainer.innerHTML = ""; // vacia este container before use
-
             const imgChar = (arrayCharacters) => { //constante que toma la función de retornar un div por cada personaje
                 return `<div class="subContainerChar">
                 <div class="imgChar">
@@ -66,11 +66,13 @@ dropdownFilms.addEventListener('change', function () {
                 </div>
                 </div>`;
             }
-
+            
             charContainer.innerHTML += imgChar(arrayCharacters[i].img)//se le suma la url de img a cada div
+            
+
         }
 
-
+        
     }
 
 });
@@ -92,19 +94,14 @@ window.onclick = function (event) {
 
 
 
-
 //let dropDownGender = document.getElementById("selectGender");
 
 /* dropDownGender.addEventListener('change', function () {
-
     let allData = data.films,
         valueCharacter = dropDownGender.value;
-
     for (let i = 0; i < allData.length; ++i) {
         let arrayCharacters = allData[i].people;
         console.log(arrayCharacters.filter(element => element.gender == valueCharacter));
     }
 });
 */
-
-
