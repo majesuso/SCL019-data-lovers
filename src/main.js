@@ -44,22 +44,25 @@ dropdownFilms.addEventListener('change', function () {
         document.getElementById("RT_Score").innerHTML = rtScoreFilm;
         modal.style.display = "block";
 
-        let arrayCharacters = filmArray.people
+        let arrayCharacters = filmArray.people //Toma la propiedad de people del array de filmSelected 
+        //Recorre el array de people del film seleccionado
         for (let i = 0; i < arrayCharacters.length; ++i) {
 
-            let nameCharacter = arrayCharacters[i].name;
-            const charContainer = document.getElementById("Characters");
+            let nameCharacter = arrayCharacters[i].name; //Contiene propiedad name del array
+            const charContainer = document.getElementById("Characters"); //Llama a un div de html
 
-            const imgChar = (arrayCharacters) => {
-                return `<div class="imgChar">
+            const imgChar = (arrayCharacters) => { //constante que toma la función de retornar un div por cada personaje
+                return `<div class="subContainerChar">
+                <div class="imgChar">
                 <img src="${arrayCharacters}" width="150">
                 </div>
                 <div class="nameChar">
                 <p>${nameCharacter}</p>
+                </div>
                 </div>`;
             }
             
-            charContainer.innerHTML += imgChar(arrayCharacters[i].img)
+            charContainer.innerHTML += imgChar(arrayCharacters[i].img)//se le suma la url de img a cada div
         }
 
         
