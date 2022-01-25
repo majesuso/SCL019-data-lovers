@@ -1,7 +1,2 @@
-// estas funciones son de ejemplo
-/*
-
-export const anotherExample = () => {
-  return 'OMG';
-};
-*/
+let filmSelected = allFilms.sort;
+return(filmSelected);

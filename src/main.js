@@ -4,11 +4,16 @@ let allFilms = data.films; // Get data ghibli.js
 
 window.addEventListener("load",() => {
     for (let i = 0; i < allFilms.length; ++i) {
-        console.log(allFilms[i].poster)
         document.getElementById("Posters").innerHTML += `<div class = "EachPoster"><img src="${allFilms[i].poster}"></div>`;
     }
-})
-// ponemos en contenedor "Posters" var posterFilm = filmArray.poster
+});
+
+let dropdownSort = document.getElementById("selectSort");
+dropdownSort.addEventListener('change', function () {
+
+});
+
+
 
 let dropdownFilms = document.getElementById("selectFilm"); // Get dropdown element from DOM
 
