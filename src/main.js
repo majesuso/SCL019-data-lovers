@@ -51,11 +51,11 @@ dropdownFilms.addEventListener('change', function () {
 
         let arrayCharacters = filmArray.people //Toma la propiedad de people del array de filmSelected 
         //Recorre el array de people del film seleccionado
+        let nameCharacter = arrayCharacters[i].name; //Contiene propiedad name del array
+        const charContainer = document.getElementById("Characters"); //Llama a un div de html
+        charContainer.innerHTML = ""; // vacia este container before use
+
         for (let i = 0; i < arrayCharacters.length; ++i) {
-
-            let nameCharacter = arrayCharacters[i].name; //Contiene propiedad name del array
-            const charContainer = document.getElementById("Characters"); //Llama a un div de html
-
             const imgChar = (arrayCharacters) => { //constante que toma la función de retornar un div por cada personaje
                 return `<div class="subContainerChar">
                 <div class="imgChar">
@@ -68,6 +68,8 @@ dropdownFilms.addEventListener('change', function () {
             }
             
             charContainer.innerHTML += imgChar(arrayCharacters[i].img)//se le suma la url de img a cada div
+            
+
         }
 
         
