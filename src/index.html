@@ -15,12 +15,18 @@
 
   <header class="main-header">
     <h1>Studio Ghibli</h1>
-    <div id="photo-creator"><img src="../images/inicio/hayao miyazaki.jpeg" width="450"></div>
-    <p>El Studio Ghibli (スタジオジブリ Sutajio Jiburi) es un estudio de animación japonés, con sede en Tokio. Fue fundada en
-      1985 por Hayao Miyazaki y Isao Takahata, y a día de hoy, han realizado más de 20 películas, además de otras clases
-      de trabajos como cortometrajes, anuncios publicitarios, entre otros.</p>
-    <p>Debido a su popularidad, se abrió el Museo Ghibli, el cual se encuentra a las afueras de Tokio y para el 2022 se
-      espera tener listo el Ghibli Park.</p>
+    <div id="photo-creator" class="Inicio">
+      <img src="images/inicio/hayaomiyazaki_main.svg">
+      <div>
+        <p>El Studio Ghibli (スタジオジブリ Sutajio Jiburi) es un estudio de animación japonés, con sede en Tokio. Fue fundada en
+          1985 por Hayao Miyazaki y Isao Takahata, y a día de hoy, han realizado más de 20 películas, además de otras clases
+          de trabajos como cortometrajes, anuncios publicitarios, entre otros.</p>
+        <p>Debido a su popularidad, se abrió el Museo Ghibli, el cual se encuentra a las afueras de Tokio y para el 2022 se
+          espera tener listo el Ghibli Park.</p>
+        </div>
+      <img src="images/inicio/princesamononoke.svg" width="45%";>
+    </div>
+
   </header>
 
   <section>
@@ -35,7 +41,7 @@
         <span class="close">&times;</span>
         <div class="FilmInfo">
           <div class="Img">
-            <img id="TarjetaFilmPoster" src="" alt="AllPosters" width="250">
+            <img id="TarjetaFilmPoster" src="" class="AllPosters">
           </div>
           <div class="FilmInfoText">
             <h2 id="Director"> </h2>
@@ -63,21 +69,23 @@
 
   <main>
     <!-- posters and field para filtrar y ordenar -->
-    <form id="DropDownFilms">
+    <form class="Dropdown" id="DropDownFilms">
       <label for="peliculas">Películas</label>
       <select name="selectFilm" id="selectFilm">
         <option>--</option>
       </select>
-    <!-- </form>
-    <form id=dropDownCharacter>
-      <label for="personajes">Personajes</label>
-      <select name="selectGender" id="selectGender">
+
+    </form>
+
+    <form id="DropdownSort" class="Dropdown">
+      <label for="DropdownSort">Sort</label>
+      <select name="Sortby" id="selectSort">
         <option>--</option>
-        <option value="Female">Femenino</option>
-        <option value="Male">Masculino</option>
-        <option value="NA">Desconocido</option>
+        <option value="Year">Sort by year</option>
+        <option value="A_Z">A-Z</option>
+        <option value="Z-A">Z-A</option>
       </select>
-    </form> -->
+    </form>
 
     <div id="Posters" class="ImgContainers"></div>
   </main>
