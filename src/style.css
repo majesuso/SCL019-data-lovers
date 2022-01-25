@@ -19,22 +19,6 @@ h2{
   font-weight: 400;
 }
 
-.RT_icon {
-  fill: rgb(148, 148, 148);
-}
-
-.RT_icon:hover {
-  fill: #ff2222;
-}
-
-.RT_rate {
-  color: rgb(148, 148, 148);
-}
-
-.RT_rate:hover {
-  color: #ff2222;
-}
-
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
@@ -75,7 +59,8 @@ h2{
     display: flex;
     flex-direction: row;
     align-items:center;
-    gap: 25px;  
+    gap: 25px; 
+    margin-top: 50px; 
   }
 
   .icon_Rtscore{
@@ -84,7 +69,15 @@ h2{
     align-items: center;
     gap: 8px;
 
+    fill: rgb(148, 148, 148);
+    color: rgb(148, 148, 148);
   }
+  
+  .icon_Rtscore:hover{
+    fill: #ff2222;
+    color: #ff2222;
+  }
+
   .Year{
     color: rgb(148, 148, 148);
     padding: 5px;
