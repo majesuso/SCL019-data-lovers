@@ -1,6 +1,15 @@
 import data from './data/ghibli/ghibli.js';
 
 let allFilms = data.films; // Get data ghibli.js
+
+window.addEventListener("load",() => {
+    for (let i = 0; i < allFilms.length; ++i) {
+        console.log(allFilms[i].poster)
+        document.getElementById("Posters").innerHTML += `<div class = "EachPoster"><img src="${allFilms[i].poster}"></div>`;
+    }
+})
+// ponemos en contenedor "Posters" var posterFilm = filmArray.poster
+
 let dropdownFilms = document.getElementById("selectFilm"); // Get dropdown element from DOM
 
 // Loop through the array
@@ -55,6 +64,8 @@ dropdownFilms.addEventListener('change', function () {
             
             charContainer.innerHTML += imgChar(arrayCharacters[i].img)//se le suma la url de img a cada div
         }
+
+        
     }
 
 });
@@ -62,15 +73,7 @@ dropdownFilms.addEventListener('change', function () {
 //usando y llamando modal box
 // Get the modal
 var modal = document.getElementById("myModal");
-// Get the button that opens the modal
-// var btn = document.getElementById("myBtn");
-// Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
-// When the user clicks on the button, open the modal
-// btn.onclick = function() {
-//   modal.style.display = "block";
-// }
-// When the user clicks on <span> (x), close the modal
 span.onclick = function () {
     modal.style.display = "none";
 }
@@ -80,6 +83,8 @@ window.onclick = function (event) {
         modal.style.display = "none";
     }
 }
+
+
 
 
 //let dropDownGender = document.getElementById("selectGender");
