@@ -4,11 +4,11 @@ let allFilms = data.films; // Get data ghibli.js
 
 window.addEventListener("load",() => {
     for (let i = 0; i < allFilms.length; ++i) {
-        console.log(allFilms[i].poster)
-        document.getElementById("Posters").innerHTML += `<div class = "EachPoster"><img src="${allFilms[i].poster}"></div>`;
+        let posterFilm = allFilms[i].poster
+        document.getElementById("Posters").innerHTML += `<div class = "EachPoster"><img src="${posterFilm}"></div>`;
     }
 })
-// ponemos en contenedor "Posters" var posterFilm = filmArray.poster
+
 
 let dropdownFilms = document.getElementById("selectFilm"); // Get dropdown element from DOM
 
@@ -64,10 +64,10 @@ dropdownFilms.addEventListener('change', function () {
             
             charContainer.innerHTML += imgChar(arrayCharacters[i].img)//se le suma la url de img a cada div
         }
-
+        
         
     }
-
+    
 });
 
 //usando y llamando modal box
@@ -83,6 +83,7 @@ window.onclick = function (event) {
         modal.style.display = "none";
     }
 }
+
 
 
 
