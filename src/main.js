@@ -2,13 +2,17 @@ import data from './data/ghibli/ghibli.js';
 
 let allFilms = data.films; // Get data ghibli.js
 
-window.addEventListener("load",() => {
+window.addEventListener("load", () => {
     for (let i = 0; i < allFilms.length; ++i) {
         let posterFilm = allFilms[i].poster
         document.getElementById("Posters").innerHTML += `<div class = "EachPoster"><img src="${posterFilm}"></div>`;
     }
-})
+});
 
+let dropdownSort = document.getElementById("selectSort");
+dropdownSort.addEventListener('change', function () {
+
+});
 
 let dropdownFilms = document.getElementById("selectFilm"); // Get dropdown element from DOM
 
@@ -50,6 +54,7 @@ dropdownFilms.addEventListener('change', function () {
 
             let nameCharacter = arrayCharacters[i].name; //Contiene propiedad name del array
             const charContainer = document.getElementById("Characters"); //Llama a un div de html
+            charContainer.innerHTML = ""; // vacia este container before use
 
             const imgChar = (arrayCharacters) => { //constante que toma la función de retornar un div por cada personaje
                 return `<div class="subContainerChar">
@@ -61,13 +66,13 @@ dropdownFilms.addEventListener('change', function () {
                 </div>
                 </div>`;
             }
-            
+
             charContainer.innerHTML += imgChar(arrayCharacters[i].img)//se le suma la url de img a cada div
         }
-        
-        
+
+
     }
-    
+
 });
 
 //usando y llamando modal box

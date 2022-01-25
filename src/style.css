@@ -9,6 +9,14 @@ html, body{
   color:aliceblue;
 }
 
+.Inicio {
+  display:flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: center;
+  gap: 10%;
+}
+
 h1{
   color: #fff;
   font-weight: 400;
@@ -29,9 +37,42 @@ h2{
   gap: 20px;
 }
 
+.dropdown {
+  background-color: aliceblue;
+}
+
 .EachPoster {
+  width: 250px;
+  height: 400px;
+  object-fit: cover; /* máscara de recorte */
+  object-position: top center; 
   background:cover;
-  border: 1px #111322;
+  border: 1px;
+  border-color: #111322;
+}
+
+
+
+.Inicio { /* "photo-creator" */
+  display:flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: center;
+  gap: 10%;
+}
+
+.dropdown {
+  background-color: aliceblue;
+}
+
+.EachPoster { /* cada poster */
+  width: 250px;
+  height: 400px;
+  object-fit: cover; /* máscara de recorte */
+  object-position: top center; 
+  background:cover;
+  border: 1px;
+  border-color: #111322;
 }
 
 /* The Modal (background) */
@@ -58,19 +99,27 @@ h2{
     width: 80%; /* Could be more or less, depending on screen size */
   }
 
-  .FilmInfo {
+  .FilmInfo { /* All data film */
     display: flex;
     gap: 40px;
     width: 900px;
   }
 
-  .FilmInfoText {
+  .AllPosters { /* Poster film card */
+    display: flex;
+    width: 300px;
+    height: 430px;
+    object-fit: cover;
+    object-position: top center;
+  }
+
+  .FilmInfoText { /* data texto y rt score */
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
   }
 
-  .RottenTomatoes {
+  .RottenTomatoes { /* rt score + icon */
     display: flex;
 
     flex-direction: row;
@@ -80,7 +129,7 @@ h2{
 
   }
 
-  .icon_Rtscore{
+  .icon_Rtscore{ /* icon rt score */
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -95,7 +144,7 @@ h2{
     color: #ff2222;
   }
 
-  .Year{
+  .Year{ /* Release year */
     color: rgb(148, 148, 148);
     padding: 5px;
     border-radius: 5px;
