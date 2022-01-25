@@ -9,12 +9,6 @@ html, body{
   color:aliceblue;
 }
 
-/* .MainDesign {
-    background-color: #111322;
-    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
-    color:aliceblue; 
-} */
-
 h1{
   color: #fff;
   font-weight: 400;
@@ -60,29 +54,38 @@ h2{
     background-color: #111322;
     font-family: 'Montserrat', Arial, Helvetica, sans-serif;
     margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
+    padding: 50px;
+    border: none;
     width: 80%; /* Could be more or less, depending on screen size */
   }
 
   .FilmInfo {
     display: flex;
-    justify-content: space-around;
-    gap: 20px;
+    gap: 40px;
+    width: 900px;
+  }
+
+  .FilmInfoText {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
   }
 
   .RottenTomatoes {
     display: flex;
-    /* justify-content: space-around; */
-    align-items: flex-end;
-    align-content: center;
-    gap: 20px;
-    
+    flex-direction: row;
+    align-items:center;
+    gap: 25px;  
   }
 
+  .icon_Rtscore{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+
+  }
   .Year{
-    display: inline-block;
-    margin-top: 25px;
     color: rgb(148, 148, 148);
     padding: 5px;
     border-radius: 5px;
@@ -106,3 +109,32 @@ h2{
     color: rgb(255, 255, 255);
     text-decoration: none;
     cursor: pointer;
+  }
+
+.containerChar { /*contiene todos los characters */
+  display: flex;
+  flex-flow: row wrap; /* con wrap se acomodan los elementos dentro del contecedor */
+  gap: 25px;
+  margin-top: 100px;
+  }
+
+.subContainerChar{ /* contenedor por cada character y name */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.imgChar img { /* manipulamos la imagen de character */
+  width: 150px;
+  height: 150px;
+  object-fit: cover; /* máscara de recorte */
+  object-position: top center; /* posición de la imagen dentro del contenedor */
+  border-radius: 150px;
+}
+.imgChar:hover {
+  opacity: 20%;
+}
+.nameChar {
+  width: 100px;
+  text-align: center;
+}

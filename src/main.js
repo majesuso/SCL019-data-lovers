@@ -43,11 +43,13 @@ dropdownFilms.addEventListener('change', function () {
             const charContainer = document.getElementById("Characters"); //Llama a un div de html
 
             const imgChar = (arrayCharacters) => { //constante que toma la función de retornar un div por cada personaje
-                return `<div class="imgChar">
+                return `<div class="subContainerChar">
+                <div class="imgChar">
                 <img src="${arrayCharacters}" width="150">
                 </div>
                 <div class="nameChar">
                 <p>${nameCharacter}</p>
+                </div>
                 </div>`;
             }
             
