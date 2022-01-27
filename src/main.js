@@ -1,6 +1,15 @@
 import data from './data/ghibli/ghibli.js';
+import {sortAZ} from "./data.js";
 
 let allFilms = data.films; // Get data ghibli.js
+
+// const mainPoster = (allFilms) => {
+//     document.getElementById("Posters").innerHTML = "";
+//     for (let i = 0; i < allFilms.length; ++i) {
+//         let otroVar = `<div class = "EachPoster"><img src="${allFilms[i].poster}"></div>`;
+//     }
+//     return mainPoster(otroVar);
+// };
  
 window.addEventListener("load",() => {
     for (let i = 0; i < allFilms.length; ++i) {
@@ -8,17 +17,22 @@ window.addEventListener("load",() => {
     }
 });
 
-let SelectPoster = document.getElementsByClassName("EachPoster");
-SelectPoster.addEventListener("click", function() {
-//how do I call the same modal box?
-});
+// let SelectPoster = document.querySelector(".EachPoster");
+// SelectPoster.addEventListener("click", function() {
+// //how do I call the same modal box?
+// });
 
 let dropdownSort = document.getElementById("selectSort");
 dropdownSort.addEventListener('change', function () {
-    //if selectedIndex Year - DropdownSort.sort(a,b) => {return DropdownSort}
-    // if selected A_Z
-    // DropdownSort.sort();
-    // document.getElementById("Posters").innerHTML = DropdownSort;
+
+    let valueSort = dropdownSort.value;
+    let infoSort = sortAZ(allFilms);
+
+    //if selectedIndex Year - DropdownSort.sort(a,b) => return DropdownSort
+    if (valueSort === "A_Z") {
+    // document.getElementById("Posters").innerHTML = infoSort;
+    document.getElementById("Posters").innerHTML += mainPoster(infoSort.poster);
+    }
     // if Z_A {return reverse sort}
 });
 
