@@ -16,10 +16,10 @@ SelectPoster.addEventListener("click", function() {
 let dropdownSort = document.getElementById("selectSort");
 dropdownSort.addEventListener('change', function () {
     //if selectedIndex Year - DropdownSort.sort(a,b) => {return DropdownSort}
-    // if selected A_Z
+    // if selected A-Z
     // DropdownSort.sort();
-    // document.getElementById("Posters").innerHTML = DropdownSort;
-    // if Z_A {return reverse sort}
+    // document.getElementById("Posters").innerHTML = points;
+    // if Z-A {return }
 });
 
 let dropdownFilms = document.getElementById("selectFilm"); // Get dropdown element from DOM
@@ -74,10 +74,14 @@ dropdownFilms.addEventListener('change', function () {
                 </div>
                 </div>`;
             }
+<<<<<<< HEAD
 
             charContainer.innerHTML += imgChar(arrayCharacters[i].img)//se le suma la url de img a cada div
             
+=======
+>>>>>>> 8831c31cd80b5fbe5415f19a1a24559d148e1b17
 
+            charContainer.innerHTML += imgChar(arrayCharacters[i].img)//se le suma la url de img a cada div
         }
     }
 });
@@ -95,3 +99,22 @@ window.onclick = function (event) {
         modal.style.display = "none";
     }
 }
+<<<<<<< HEAD
+=======
+
+
+
+
+
+//let dropDownGender = document.getElementById("selectGender");
+
+/* dropDownGender.addEventListener('change', function () {
+    let allData = data.films,
+        valueCharacter = dropDownGender.value;
+    for (let i = 0; i < allData.length; ++i) {
+        let arrayCharacters = allData[i].people;
+        console.log(arrayCharacters.filter(element => element.gender == valueCharacter));
+    }
+});
+*/
+>>>>>>> 8831c31cd80b5fbe5415f19a1a24559d148e1b17
