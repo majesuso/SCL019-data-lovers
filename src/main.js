@@ -16,10 +16,10 @@ SelectPoster.addEventListener("click", function() {
 let dropdownSort = document.getElementById("selectSort");
 dropdownSort.addEventListener('change', function () {
     //if selectedIndex Year - DropdownSort.sort(a,b) => {return DropdownSort}
-    // if selected A-Z
+    // if selected A_Z
     // DropdownSort.sort();
-    // document.getElementById("Posters").innerHTML = points;
-    // if Z-A {return }
+    // document.getElementById("Posters").innerHTML = DropdownSort;
+    // if Z_A {return reverse sort}
 });
 
 let dropdownFilms = document.getElementById("selectFilm"); // Get dropdown element from DOM
@@ -93,23 +93,3 @@ window.onclick = function (event) {
         modal.style.display = "none";
     }
 }
-
-
-
-
-
-//let dropDownGender = document.getElementById("selectGender");
-
-/* dropDownGender.addEventListener('change', function () {
-
-    let allData = data.films,
-        valueCharacter = dropDownGender.value;
-
-    for (let i = 0; i < allData.length; ++i) {
-        let arrayCharacters = allData[i].people;
-        console.log(arrayCharacters.filter(element => element.gender == valueCharacter));
-    }
-});
-*/
-
-
