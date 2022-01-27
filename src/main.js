@@ -99,8 +99,6 @@ window.onclick = function (event) {
         modal.style.display = "none";
     }
 }
-<<<<<<< HEAD
-=======
 
 
 
@@ -117,4 +115,3 @@ window.onclick = function (event) {
     }
 });
 */
->>>>>>> 8831c31cd80b5fbe5415f19a1a24559d148e1b17
