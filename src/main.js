@@ -1,25 +1,39 @@
 import data from './data/ghibli/ghibli.js';
+import {sortAZ} from "./data.js";
 
 let allFilms = data.films; // Get data ghibli.js
+
+// const mainPoster = (allFilms) => {
+//     document.getElementById("Posters").innerHTML = "";
+//     for (let i = 0; i < allFilms.length; ++i) {
+//         let otroVar = `<div class = "EachPoster"><img src="${allFilms[i].poster}"></div>`;
+//     }
+//     return mainPoster(otroVar);
+// };
  
 window.addEventListener("load",() => {
     for (let i = 0; i < allFilms.length; ++i) {
         document.getElementById("Posters").innerHTML += `<div class = "EachPoster"><img src="${allFilms[i].poster}"></div>`;
     }
 });
-/*
-let SelectPoster = document.getElementsByClassName("EachPoster");
-SelectPoster.addEventListener("click", function() {
-//how do I call the same modal box?
-});
+
+// let SelectPoster = document.querySelector(".EachPoster");
+// SelectPoster.addEventListener("click", function() {
+// //how do I call the same modal box?
+// });
 
 let dropdownSort = document.getElementById("selectSort");
 dropdownSort.addEventListener('change', function () {
-    //if selectedIndex Year - DropdownSort.sort(a,b) => {return DropdownSort}
-    // if selected A-Z
-    // DropdownSort.sort();
-    // document.getElementById("Posters").innerHTML = points;
-    // if Z-A {return }
+
+    let valueSort = dropdownSort.value;
+    let infoSort = sortAZ(allFilms);
+
+    //if selectedIndex Year - DropdownSort.sort(a,b) => return DropdownSort
+    if (valueSort === "A_Z") {
+    // document.getElementById("Posters").innerHTML = infoSort;
+    document.getElementById("Posters").innerHTML += mainPoster(infoSort.poster);
+    }
+    // if Z_A {return reverse sort}
 });
 */
 let dropdownFilms = document.getElementById("selectFilm"); // Get dropdown element from DOM
@@ -93,19 +107,3 @@ window.onclick = function (event) {
         modal.style.display = "none";
     }
 }
-
-
-
-
-
-//let dropDownGender = document.getElementById("selectGender");
-
-/* dropDownGender.addEventListener('change', function () {
-    let allData = data.films,
-        valueCharacter = dropDownGender.value;
-    for (let i = 0; i < allData.length; ++i) {
-        let arrayCharacters = allData[i].people;
-        console.log(arrayCharacters.filter(element => element.gender == valueCharacter));
-    }
-});
-*/
