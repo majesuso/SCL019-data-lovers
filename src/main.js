@@ -7,7 +7,7 @@ window.addEventListener("load",() => {
         document.getElementById("Posters").innerHTML += `<div class = "EachPoster"><img src="${allFilms[i].poster}"></div>`;
     }
 });
-
+/*
 let SelectPoster = document.getElementsByClassName("EachPoster");
 SelectPoster.addEventListener("click", function() {
 //how do I call the same modal box?
@@ -21,7 +21,7 @@ dropdownSort.addEventListener('change', function () {
     // document.getElementById("Posters").innerHTML = points;
     // if Z-A {return }
 });
-
+*/
 let dropdownFilms = document.getElementById("selectFilm"); // Get dropdown element from DOM
 
 // Loop through the array
@@ -74,12 +74,6 @@ dropdownFilms.addEventListener('change', function () {
                 </div>
                 </div>`;
             }
-<<<<<<< HEAD
-
-            charContainer.innerHTML += imgChar(arrayCharacters[i].img)//se le suma la url de img a cada div
-            
-=======
->>>>>>> 8831c31cd80b5fbe5415f19a1a24559d148e1b17
 
             charContainer.innerHTML += imgChar(arrayCharacters[i].img)//se le suma la url de img a cada div
         }
