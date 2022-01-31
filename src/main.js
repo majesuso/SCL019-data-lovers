@@ -11,7 +11,7 @@ const mainPoster = (films) => {
     // document.getElementById("Posters").innerHTML = "";
     for (let i = 0; i < films.length; ++i) {
         document.getElementById("Posters").innerHTML += `<div class="subContainerPoster">
-        <div class="containerImg">
+        <div id="${allFilms[i].id}" class="containerImg">
         <img src="${allFilms[i].poster}">
         <div class="titleEng"><p>${allFilms[i].title}</p>
         </div>
@@ -24,14 +24,61 @@ window.addEventListener("load",() => {
     mainPoster(allFilms);
 });
 
-const filmPopUp = (films) => {
+const modalDisplay = (film) => {
+    modal.style.display = "block";
+    let filmSelected = allFilms.filter(element => element.id == film); // Filtra según el id == valor del indice seleccionado
 
+    //Recorriendo array del film seleccionado
+    for (let i = 0; i < filmSelected.length; ++i) {
+
+        //Recogiendo propiedades del objeto del film seleccionado
+        let filmArray = filmSelected[i],
+            titleFilm = filmArray.title,
+            descriptionFilm = filmArray.description,
+            directorFilm = filmArray.director,
+            posterFilm = filmArray.poster,
+            dateFilm = filmArray.release_date,
+            rtScoreFilm = filmArray.rt_score;
+
+        document.getElementById("TarjetaFilmP").innerHTML = descriptionFilm;
+        document.getElementById("TarjetaFilmPoster").src = posterFilm;
+        document.getElementById("FilmTitle").innerHTML = titleFilm;
+        document.getElementById("Director").innerHTML = directorFilm;
+        document.getElementById("myYear").innerHTML = dateFilm;
+        document.getElementById("RT_Score").innerHTML = rtScoreFilm;
+        // modal.style.display = "block";
+
+        let arrayCharacters = filmArray.people //Toma la propiedad de people del array de filmSelected 
+        //Recorre el array de people del film seleccionado
+        
+        const charContainer = document.getElementById("Characters"); //Llama a un div de html
+        charContainer.innerHTML = ""; // vacia este container before use
+
+        for (let i = 0; i < arrayCharacters.length; ++i) {
+            let nameCharacter = arrayCharacters[i].name; //Contiene propiedad name del array
+            const imgChar = (arrayCharacters) => { //constante que toma la función de retornar un div por cada personaje
+                return `<div class="subContainerChar">
+                <div class="imgChar">
+                <img src="${arrayCharacters}" width="150">
+                </div>
+                <div class="nameChar">
+                <p>${nameCharacter}</p>
+                </div>
+                </div>`;
+            }
+
+            charContainer.innerHTML += imgChar(arrayCharacters[i].img)//se le suma la url de img a cada div
+        }
+    };
 }
 
-// let SelectPoster = document.querySelector(".EachPoster");
-// SelectPoster.addEventListener("click", function() {
-// //how do I call the same modal box?
-// });
+document.querySelectorAll('.containerImg').forEach(item => {
+    item.addEventListener('click', event => {
+        console.log(item);
+        let film_id = item.id; //dropdownFilms.options[dropdownFilms.selectedIndex].value;
+        modalDisplay(film_id);
+    })
+  });
 
 let dropdownSort = document.getElementById("selectSort");
 dropdownSort.addEventListener('change', function () {
@@ -75,56 +122,13 @@ for (let i = 0; i < allFilms.length; ++i) {
 };
 
 dropdownFilms.addEventListener('change', function () {
-    modal.style.display = "block";
     let valueFilm = dropdownFilms.options[dropdownFilms.selectedIndex].value; //valor de Film sera igual al valor del indice seleccionado
-    let filmSelected = allFilms.filter(element => element.id == valueFilm); // Filtra según el id == valor del indice seleccionado
-
-    //Recorriendo array del film seleccionado
-    for (let i = 0; i < filmSelected.length; ++i) {
-
-        //Recogiendo propiedades del objeto del film seleccionado
-        let filmArray = filmSelected[i],
-            titleFilm = filmArray.title,
-            descriptionFilm = filmArray.description,
-            directorFilm = filmArray.director,
-            posterFilm = filmArray.poster,
-            dateFilm = filmArray.release_date,
-            rtScoreFilm = filmArray.rt_score;
-
-        document.getElementById("TarjetaFilmP").innerHTML = descriptionFilm;
-        document.getElementById("TarjetaFilmPoster").src = posterFilm;
-        document.getElementById("FilmTitle").innerHTML = titleFilm;
-        document.getElementById("Director").innerHTML = directorFilm;
-        document.getElementById("myYear").innerHTML = dateFilm;
-        document.getElementById("RT_Score").innerHTML = rtScoreFilm;
-        // modal.style.display = "block";
-
-        let arrayCharacters = filmArray.people //Toma la propiedad de people del array de filmSelected 
-        //Recorre el array de people del film seleccionado
-        
-        const charContainer = document.getElementById("Characters"); //Llama a un div de html
-        charContainer.innerHTML = ""; // vacia este container before use
-
-        for (let i = 0; i < arrayCharacters.length; ++i) {
-            let nameCharacter = arrayCharacters[i].name; //Contiene propiedad name del array
-            const imgChar = (arrayCharacters) => { //constante que toma la función de retornar un div por cada personaje
-                return `<div class="subContainerChar">
-                <div class="imgChar">
-                <img src="${arrayCharacters}" width="150">
-                </div>
-                <div class="nameChar">
-                <p>${nameCharacter}</p>
-                </div>
-                </div>`;
-            }
-
-            charContainer.innerHTML += imgChar(arrayCharacters[i].img)//se le suma la url de img a cada div
-        }
-    }
+    modalDisplay(valueFilm);
 });
 
 //usando y llamando modal box
 // Get the modal
+
 var modal = document.getElementById("myModal");
 var span = document.getElementsByClassName("close")[0];
 span.onclick = function () {
