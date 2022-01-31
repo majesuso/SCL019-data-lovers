@@ -10,7 +10,13 @@ const clearPage = () => {
 const mainPoster = (films) => {
     // document.getElementById("Posters").innerHTML = "";
     for (let i = 0; i < films.length; ++i) {
-        document.getElementById("Posters").innerHTML += `<div class = "EachPoster"><img src="${allFilms[i].poster}"></div>`;
+        document.getElementById("Posters").innerHTML += `<div class="subContainerPoster">
+        <div class="containerImg">
+        <img src="${allFilms[i].poster}">
+        <div class="titleEng"><p>${allFilms[i].title}</p>
+        </div>
+        </div>
+        </div>`;
     }
 };
 
