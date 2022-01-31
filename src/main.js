@@ -1,8 +1,19 @@
 import data from './data/ghibli/ghibli.js';
-import {sortAZ} from "./data.js";
+import { sortAZ } from "./data.js";
 
 let allFilms = data.films; // Get data ghibli.js
+let containerPoster = document.getElementById("Posters");
+containerPoster.innerHTML = "";
 
+
+
+// const mainPoster = () => {
+//   document.getElementById("Posters").innerHTML = "";
+//   for (let i = 0; i < allFilms.length; i++) {
+//        let arrPoster = allFilms[i].map( x => `<div class = "EachPoster"><img src="${allFilms[i].poster}"></div>`);
+//    } 
+//    return arrPoster
+//};
 // const mainPoster = (allFilms) => {
 //     document.getElementById("Posters").innerHTML = "";
 //     for (let i = 0; i < allFilms.length; ++i) {
@@ -10,11 +21,11 @@ let allFilms = data.films; // Get data ghibli.js
 //     }
 //     return mainPoster(otroVar);
 // };
- 
-window.addEventListener("load",() => {
-    for (let i = 0; i < allFilms.length; ++i) {
-        document.getElementById("Posters").innerHTML += `<div class = "EachPoster"><img src="${allFilms[i].poster}"></div>`;
-    }
+
+window.addEventListener("load", () => {
+
+    //document.getElementById("Posters").innerHTML += mainPoster;
+    console.log(mainPoster)
 });
 
 // let SelectPoster = document.querySelector(".EachPoster");
@@ -30,12 +41,12 @@ dropdownSort.addEventListener('change', function () {
 
     //if selectedIndex Year - DropdownSort.sort(a,b) => return DropdownSort
     if (valueSort === "A_Z") {
-    // document.getElementById("Posters").innerHTML = infoSort;
-    document.getElementById("Posters").innerHTML += mainPoster(infoSort.poster);
+        // document.getElementById("Posters").innerHTML = infoSort;
+        document.getElementById("Posters").innerHTML += mainPoster(infoSort);
     }
     // if Z_A {return reverse sort}
 });
-*/
+
 let dropdownFilms = document.getElementById("selectFilm"); // Get dropdown element from DOM
 
 // Loop through the array
@@ -70,13 +81,11 @@ dropdownFilms.addEventListener('change', function () {
         document.getElementById("RT_Score").innerHTML = rtScoreFilm;
         modal.style.display = "block";
 
-        let arrayCharacters = filmArray.people //Toma la propiedad de people del array de filmSelected 
-        //Recorre el array de people del film seleccionado
-        
+        let arrayCharacters = filmArray.people; //Toma la propiedad de people del array de filmSelected 
         const charContainer = document.getElementById("Characters"); //Llama a un div de html
         charContainer.innerHTML = ""; // vacia este container before use
-
-        for (let i = 0; i < arrayCharacters.length; ++i) {
+        
+        for (let i = 0; i < arrayCharacters.length; ++i) {         //Recorre el array de people del film seleccionado
             let nameCharacter = arrayCharacters[i].name; //Contiene propiedad name del array
             const imgChar = (arrayCharacters) => { //constante que toma la función de retornar un div por cada personaje
                 return `<div class="subContainerChar">
