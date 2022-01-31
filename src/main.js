@@ -1,5 +1,5 @@
 import data from './data/ghibli/ghibli.js';
-import {sortAZ} from "./data.js";
+import {sortAZ, sortDataYear} from "./data.js";
 
 const allFilms = data.films; // Get data ghibli.js
 
@@ -18,6 +18,10 @@ window.addEventListener("load",() => {
     mainPoster(allFilms);
 });
 
+const filmPopUp = (films) => {
+
+}
+
 // let SelectPoster = document.querySelector(".EachPoster");
 // SelectPoster.addEventListener("click", function() {
 // //how do I call the same modal box?
@@ -27,20 +31,31 @@ let dropdownSort = document.getElementById("selectSort");
 dropdownSort.addEventListener('change', function () {
 
     let valueSort = dropdownSort.value;
-    console.log(allFilms)
-    
-    //if selectedIndex Year - DropdownSort.sort(a,b) => return DropdownSort
+      
+    if(valueSort === "Newest"){
+        let infoSorted = sortDataYear(allFilms);
+        clearPage();
+        mainPoster(infoSorted);
+    }
+
+    if(valueSort === "Oldest"){
+        let OldestYear = sortOldest(allFilms);
+        clearPage();
+        mainPoster(OldestYear);
+    }
+
     if (valueSort === "A_Z") {
-        console.log('f (valueSort === "A_Z")', allFilms)
         let infoSort = sortAZ(allFilms);
         clearPage();
         mainPoster(infoSort);
     }
-    if(valueSort === "default"){
+
+    if (valueSort === "Z_A") {
+        let infoSortR = sortZA(allFilms);
         clearPage();
-        // mainPoster(allFilms);
+        mainPoster(infoSortR);
     }
-    // if Z_A {return reverse sort}
+
 });
 
 let dropdownFilms = document.getElementById("selectFilm"); // Get dropdown element from DOM
@@ -54,6 +69,7 @@ for (let i = 0; i < allFilms.length; ++i) {
 };
 
 dropdownFilms.addEventListener('change', function () {
+    modal.style.display = "block";
     let valueFilm = dropdownFilms.options[dropdownFilms.selectedIndex].value; //valor de Film sera igual al valor del indice seleccionado
     let filmSelected = allFilms.filter(element => element.id == valueFilm); // Filtra según el id == valor del indice seleccionado
 
@@ -75,7 +91,7 @@ dropdownFilms.addEventListener('change', function () {
         document.getElementById("Director").innerHTML = directorFilm;
         document.getElementById("myYear").innerHTML = dateFilm;
         document.getElementById("RT_Score").innerHTML = rtScoreFilm;
-        modal.style.display = "block";
+        // modal.style.display = "block";
 
         let arrayCharacters = filmArray.people //Toma la propiedad de people del array de filmSelected 
         //Recorre el array de people del film seleccionado
