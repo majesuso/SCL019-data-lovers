@@ -1,31 +1,21 @@
 import data from './data/ghibli/ghibli.js';
-import { sortAZ } from "./data.js";
+import {sortAZ} from "./data.js";
 
-let allFilms = data.films; // Get data ghibli.js
-let containerPoster = document.getElementById("Posters");
-containerPoster.innerHTML = "";
+const allFilms = data.films; // Get data ghibli.js
 
+const clearPage = () => {
+    document.getElementById("Posters").innerHTML = "";
+}
 
+const mainPoster = (films) => {
+    // document.getElementById("Posters").innerHTML = "";
+    for (let i = 0; i < films.length; ++i) {
+        document.getElementById("Posters").innerHTML += `<div class = "EachPoster"><img src="${allFilms[i].poster}"></div>`;
+    }
+};
 
-// const mainPoster = () => {
-//   document.getElementById("Posters").innerHTML = "";
-//   for (let i = 0; i < allFilms.length; i++) {
-//        let arrPoster = allFilms[i].map( x => `<div class = "EachPoster"><img src="${allFilms[i].poster}"></div>`);
-//    } 
-//    return arrPoster
-//};
-// const mainPoster = (allFilms) => {
-//     document.getElementById("Posters").innerHTML = "";
-//     for (let i = 0; i < allFilms.length; ++i) {
-//         let otroVar = `<div class = "EachPoster"><img src="${allFilms[i].poster}"></div>`;
-//     }
-//     return mainPoster(otroVar);
-// };
-
-window.addEventListener("load", () => {
-
-    //document.getElementById("Posters").innerHTML += mainPoster;
-    console.log(mainPoster)
+window.addEventListener("load",() => {
+    mainPoster(allFilms);
 });
 
 // let SelectPoster = document.querySelector(".EachPoster");
@@ -37,12 +27,19 @@ let dropdownSort = document.getElementById("selectSort");
 dropdownSort.addEventListener('change', function () {
 
     let valueSort = dropdownSort.value;
-    let infoSort = sortAZ(allFilms);
-
+    console.log(allFilms)
+    
     //if selectedIndex Year - DropdownSort.sort(a,b) => return DropdownSort
     if (valueSort === "A_Z") {
-        // document.getElementById("Posters").innerHTML = infoSort;
-        document.getElementById("Posters").innerHTML += mainPoster(infoSort);
+        console.log('f (valueSort === "A_Z")', allFilms)
+        let infoSort = sortAZ(allFilms);
+        clearPage();
+        mainPoster(infoSort);
+    }
+    if(valueSort === "default"){
+        clearPage();
+        // mainPoster(allFilms);
+
     }
     // if Z_A {return reverse sort}
 });

@@ -1,11 +1,17 @@
-// import data from './data/ghibli/ghibli.js';
-
-// let allFilms = data.films; // Get data ghibli.js
-
-export const sortAZ = (allFilms) => {
-    let sortAZ_2 = allFilms.sort((a,b) => {
+export const sortAZ = (data) => {
+    let sortedData=[];
+    sortedData = data.sort((a,b) => {
         return a.title.localeCompare(b.title);
     });
-return sortAZ_2;
+    return sortedData;
+}
+// window.sortAZ = sortAZ;
+
+export const sortDataYear = (allFilms) => {
+
+    const sortDataYear = allFilms.sort((a,b) => {
+        return b.release_date - a.release_date;
+    });
+return sortDataYear;
 }
 
