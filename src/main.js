@@ -152,7 +152,7 @@ window.onclick = function (event) {
     }
 }
 
-
+}
 
 
 
@@ -167,6 +167,4 @@ window.onclick = function (event) {
     }
 });
 */
-=======
->>>>>>> cbcdf84218c3a0890e13e185b21f8cd9fc028615
->>>>>>> BuhaAutilla-main
+
