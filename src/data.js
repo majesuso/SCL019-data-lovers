@@ -5,18 +5,6 @@ export const sortAZ = (data) => {
     });
     return sortedData;
 }
-<<<<<<< HEAD
-// window.sortAZ = sortAZ;
-
-export const sortDataYear = (allFilms) => {
-
-    const sortDataYear = allFilms.sort((a,b) => {
-        return b.release_date - a.release_date;
-    });
-return sortDataYear;
-}
-
-=======
 window.sortAZ = sortAZ;
 
 export const sortZA = (data) => {
@@ -49,4 +37,3 @@ return sortedOld;
 window.sortOldest = sortOldest;
 
 
->>>>>>> BuhaAutilla-main

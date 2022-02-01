@@ -48,13 +48,6 @@ const modalDisplay = (film) => {
         document.getElementById("RT_Score").innerHTML = rtScoreFilm;
         // modal.style.display = "block";
 
-
-        let arrayCharacters = filmArray.people; //Toma la propiedad de people del array de filmSelected 
-        const charContainer = document.getElementById("Characters"); //Llama a un div de html
-        charContainer.innerHTML = ""; // vacia este container before use
-        
-        for (let i = 0; i < arrayCharacters.length; ++i) {         //Recorre el array de people del film seleccionado
-            let nameCharacter = arrayCharacters[i].name; //Contiene propiedad name del array
         let arrayCharacters = filmArray.people //Toma la propiedad de people del array de filmSelected 
         //Recorre el array de people del film seleccionado
         
@@ -151,20 +144,3 @@ window.onclick = function (event) {
         modal.style.display = "none";
     }
 }
-
-}
-
-
-
-//let dropDownGender = document.getElementById("selectGender");
-
-/* dropDownGender.addEventListener('change', function () {
-    let allData = data.films,
-        valueCharacter = dropDownGender.value;
-    for (let i = 0; i < allData.length; ++i) {
-        let arrayCharacters = allData[i].people;
-        console.log(arrayCharacters.filter(element => element.gender == valueCharacter));
-    }
-});
-*/
-
