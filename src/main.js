@@ -72,13 +72,17 @@ const modalDisplay = (film) => {
     };
 }
 
-document.querySelectorAll('.containerImg').forEach(item => {
-    item.addEventListener('click', event => {
-        console.log(item);
-        let film_id = item.id; //dropdownFilms.options[dropdownFilms.selectedIndex].value;
-        modalDisplay(film_id);
-    })
-  });
+// const containerImg = document.querySelector('.subContainerPoster');
+// const Img = containerImg.querySelectorAll('.containerImg');
+
+// console.log(containerImg);
+// document.querySelectorAll('.containerImg').forEach(item => {
+//     item.addEventListener('click', event => {
+//         console.log(item);
+//         let film_id = item.id; //dropdownFilms.options[dropdownFilms.selectedIndex].value; - 
+//         modalDisplay(film_id);
+//     })
+//   });
 
 let dropdownSort = document.getElementById("selectSort");
 dropdownSort.addEventListener('change', function () {
