@@ -18,6 +18,13 @@ const mainPoster = (films) => {
         </div>
         </div>`;
     }
+    document.querySelectorAll('.containerImg').forEach(item => {
+            item.addEventListener('click', event => {
+                console.log(item);
+                let film_id = item.id; //dropdownFilms.options[dropdownFilms.selectedIndex].value; - 
+                modalDisplay(film_id);
+            })
+          });
 };
 
 window.addEventListener("load",() => {
