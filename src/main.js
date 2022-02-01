@@ -1,33 +1,32 @@
 import data from './data/ghibli/ghibli.js';
+import {sortAZ, sortDataYear} from "./data.js";
 
-let allFilms = data.films; // Get data ghibli.js
+const allFilms = data.films; // Get data ghibli.js
 
-window.addEventListener("load",() => {
-    for (let i = 0; i < allFilms.length; ++i) {
-        document.getElementById("Posters").innerHTML += `<div class = "EachPoster"><img src="${allFilms[i].poster}"></div>`;
+const clearPage = () => {
+    document.getElementById("Posters").innerHTML = "";
+}
+
+const mainPoster = (films) => {
+    // document.getElementById("Posters").innerHTML = "";
+    for (let i = 0; i < films.length; ++i) {
+        document.getElementById("Posters").innerHTML += `<div class="subContainerPoster">
+        <div id="${allFilms[i].id}" class="containerImg">
+        <img src="${allFilms[i].poster}">
+        <div class="titleEng"><p>${allFilms[i].title}</p>
+        </div>
+        </div>
+        </div>`;
     }
-});
-
-let dropdownSort = document.getElementById("selectSort");
-dropdownSort.addEventListener('change', function () {
-
-});
-
-
-
-let dropdownFilms = document.getElementById("selectFilm"); // Get dropdown element from DOM
-
-// Loop through the array
-for (let i = 0; i < allFilms.length; ++i) {
-    // Append the element to the end of Array list
-    let arrayFilms = allFilms[i];
-    // la capacidad de dropdownFilms[] se declara según la propiedad title e id del objeto/array, arrayFilms
-    dropdownFilms[dropdownFilms.length] = new Option(arrayFilms.title, arrayFilms.id);
 };
 
-dropdownFilms.addEventListener('change', function () {
-    let valueFilm = dropdownFilms.options[dropdownFilms.selectedIndex].value; //valor de Film sera igual al valor del indice seleccionado
-    let filmSelected = allFilms.filter(element => element.id == valueFilm); // Filtra según el id == valor del indice seleccionado
+window.addEventListener("load",() => {
+    mainPoster(allFilms);
+});
+
+const modalDisplay = (film) => {
+    modal.style.display = "block";
+    let filmSelected = allFilms.filter(element => element.id == film); // Filtra según el id == valor del indice seleccionado
 
     //Recorriendo array del film seleccionado
     for (let i = 0; i < filmSelected.length; ++i) {
@@ -47,15 +46,23 @@ dropdownFilms.addEventListener('change', function () {
         document.getElementById("Director").innerHTML = directorFilm;
         document.getElementById("myYear").innerHTML = dateFilm;
         document.getElementById("RT_Score").innerHTML = rtScoreFilm;
-        modal.style.display = "block";
+        // modal.style.display = "block";
 
         let arrayCharacters = filmArray.people //Toma la propiedad de people del array de filmSelected 
         //Recorre el array de people del film seleccionado
+<<<<<<< HEAD
         let nameCharacter = arrayCharacters[i].name; //Contiene propiedad name del array
+=======
+        
+>>>>>>> cbcdf84218c3a0890e13e185b21f8cd9fc028615
         const charContainer = document.getElementById("Characters"); //Llama a un div de html
         charContainer.innerHTML = ""; // vacia este container before use
 
         for (let i = 0; i < arrayCharacters.length; ++i) {
+<<<<<<< HEAD
+=======
+            let nameCharacter = arrayCharacters[i].name; //Contiene propiedad name del array
+>>>>>>> cbcdf84218c3a0890e13e185b21f8cd9fc028615
             const imgChar = (arrayCharacters) => { //constante que toma la función de retornar un div por cada personaje
                 return `<div class="subContainerChar">
                 <div class="imgChar">
@@ -66,19 +73,71 @@ dropdownFilms.addEventListener('change', function () {
                 </div>
                 </div>`;
             }
-            
+
             charContainer.innerHTML += imgChar(arrayCharacters[i].img)//se le suma la url de img a cada div
             
 
         }
+    };
+}
 
-        
+document.querySelectorAll('.containerImg').forEach(item => {
+    item.addEventListener('click', event => {
+        console.log(item);
+        let film_id = item.id; //dropdownFilms.options[dropdownFilms.selectedIndex].value;
+        modalDisplay(film_id);
+    })
+  });
+
+let dropdownSort = document.getElementById("selectSort");
+dropdownSort.addEventListener('change', function () {
+
+    let valueSort = dropdownSort.value;
+      
+    if(valueSort === "Newest"){
+        let infoSorted = sortDataYear(allFilms);
+        clearPage();
+        mainPoster(infoSorted);
+    }
+
+    if(valueSort === "Oldest"){
+        let OldestYear = sortOldest(allFilms);
+        clearPage();
+        mainPoster(OldestYear);
+    }
+
+    if (valueSort === "A_Z") {
+        let infoSort = sortAZ(allFilms);
+        clearPage();
+        mainPoster(infoSort);
+    }
+
+    if (valueSort === "Z_A") {
+        let infoSortR = sortZA(allFilms);
+        clearPage();
+        mainPoster(infoSortR);
     }
 
 });
 
+let dropdownFilms = document.getElementById("selectFilm"); // Get dropdown element from DOM
+
+// Loop through the array
+for (let i = 0; i < allFilms.length; ++i) {
+    // Append the element to the end of Array list
+    let arrayFilms = allFilms[i];
+    // la capacidad de dropdownFilms[] se declara según la propiedad title e id del objeto/array, arrayFilms
+    dropdownFilms[dropdownFilms.length] = new Option(arrayFilms.title, arrayFilms.id);
+};
+
+dropdownFilms.addEventListener('change', function () {
+    let valueFilm = dropdownFilms.options[dropdownFilms.selectedIndex].value; //valor de Film sera igual al valor del indice seleccionado
+    modalDisplay(valueFilm);
+});
+
 //usando y llamando modal box
 // Get the modal
+
 var modal = document.getElementById("myModal");
 var span = document.getElementsByClassName("close")[0];
 span.onclick = function () {
@@ -90,6 +149,7 @@ window.onclick = function (event) {
         modal.style.display = "none";
     }
 }
+<<<<<<< HEAD
 
 
 
@@ -105,3 +165,5 @@ window.onclick = function (event) {
     }
 });
 */
+=======
+>>>>>>> cbcdf84218c3a0890e13e185b21f8cd9fc028615
