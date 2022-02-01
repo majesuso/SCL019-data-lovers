@@ -15,6 +15,7 @@ html, body{
   flex-direction: row;
   align-items: center;
   gap: 10%;
+  margin: auto;
 }
 
 h1{
@@ -27,6 +28,15 @@ h2{
   font-weight: 400;
 }
 
+.upperDropdowns {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: content-distribution;
+  align-content: center;
+  gap: 5%;
+}
+
 .ImgContainers {
   display: flex;
   flex-wrap: wrap;
@@ -35,6 +45,8 @@ h2{
   align-items: center;
   align-content: center;
   gap: 20px;
+  margin: 5%;
+  padding: auto;
 }
 
 .subContainerPoster {
