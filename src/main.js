@@ -8,7 +8,6 @@ const clearPage = () => {
 }
 
 const mainPoster = (films) => {
-    // document.getElementById("Posters").innerHTML = "";
     for (let i = 0; i < films.length; ++i) {
         document.getElementById("Posters").innerHTML += `<div class="subContainerPoster">
         <div id="${allFilms[i].id}" class="containerImg">
