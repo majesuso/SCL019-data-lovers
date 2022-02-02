@@ -69,10 +69,10 @@
 
   <main>
     <!-- posters and field para filtrar y ordenar -->
-    <form class="Dropdown" id="DropDownFilms">
+    <form id="DropDownFilms" class="Dropdown">
       <label for="peliculas">Películas</label>
       <select name="selectFilm" id="selectFilm">
-        <option>--</option>
+        <option value="default">--</option>
       </select>
 
     </form>
@@ -85,6 +85,13 @@
         <option value="Oldest">Oldest First</option>
         <option value="A_Z">A-Z</option>
         <option value="Z_A">Z-A</option>
+      </select>
+    </form>
+
+    <form id="DropdownDirector" class="Dropdown">
+      <label for="DropdownDirector">Director</label>
+      <select name="selectDirector" id="selectDirector">
+        <option value="default">--</option>
       </select>
     </form>
 
