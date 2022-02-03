@@ -50,19 +50,12 @@ const modalDisplay = (film) => {
 
         let arrayCharacters = filmArray.people //Toma la propiedad de people del array de filmSelected 
         //Recorre el array de people del film seleccionado
-<<<<<<< HEAD
-        let nameCharacter = arrayCharacters[i].name; //Contiene propiedad name del array
-=======
         
->>>>>>> cbcdf84218c3a0890e13e185b21f8cd9fc028615
         const charContainer = document.getElementById("Characters"); //Llama a un div de html
         charContainer.innerHTML = ""; // vacia este container before use
 
         for (let i = 0; i < arrayCharacters.length; ++i) {
-<<<<<<< HEAD
-=======
             let nameCharacter = arrayCharacters[i].name; //Contiene propiedad name del array
->>>>>>> cbcdf84218c3a0890e13e185b21f8cd9fc028615
             const imgChar = (arrayCharacters) => { //constante que toma la función de retornar un div por cada personaje
                 return `<div class="subContainerChar">
                 <div class="imgChar">
@@ -149,21 +142,3 @@ window.onclick = function (event) {
         modal.style.display = "none";
     }
 }
-<<<<<<< HEAD
-
-
-
-
-//let dropDownGender = document.getElementById("selectGender");
-
-/* dropDownGender.addEventListener('change', function () {
-    let allData = data.films,
-        valueCharacter = dropDownGender.value;
-    for (let i = 0; i < allData.length; ++i) {
-        let arrayCharacters = allData[i].people;
-        console.log(arrayCharacters.filter(element => element.gender == valueCharacter));
-    }
-});
-*/
-=======
->>>>>>> cbcdf84218c3a0890e13e185b21f8cd9fc028615
