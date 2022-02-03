@@ -14,17 +14,15 @@
   </nav>
 
   <header class="main-header">
-    <h1>Studio Ghibli</h1>
+    <!-- <h1>Studio Ghibli</h1> -->
     <div id="photo-creator" class="Inicio">
-      <img src="images/inicio/hayaomiyazaki_main.svg">
+      <img src="images/inicio/hayaomiyazaki_main.svg" width="150%">
       <div>
-        <p>El Studio Ghibli (スタジオジブリ Sutajio Jiburi) es un estudio de animación japonés, con sede en Tokio. Fue fundada en
-          1985 por Hayao Miyazaki y Isao Takahata, y a día de hoy, han realizado más de 20 películas, además de otras clases
-          de trabajos como cortometrajes, anuncios publicitarios, entre otros.</p>
-        <p>Debido a su popularidad, se abrió el Museo Ghibli, el cual se encuentra a las afueras de Tokio y para el 2022 se
-          espera tener listo el Ghibli Park.</p>
+        <h1>Studio Ghibli</h1>
+        <p>Studio Ghibli, Inc. (株式会社スタジオジブリ, Kabushiki-gaisha Sutajio Jiburi) is a Japanese movie studio in Koganei, Tokyo. It produced anime movies. It has won many awards for some of its movies, including an Academy Award for Spirited Away. The company was established by Hayao Miyazaki in 1985. The name comes from the Arabic word ghibli, for hot winds blowing from the Sahara Desert. The main focus of Ghibli is to produce long animations, but they have produced short animations since the middle of 1990. Their movies often satirize the society at that time. The company tends to choose famous actors from television or movies as their voice actors.</p>
+        <p>They also have a museum located in Mitaka.</p>
         </div>
-      <img src="images/inicio/princesamononoke.svg" width="45%";>
+      <img src="images/inicio/princesamononoke.svg" width="35%";>
     </div>
 
   </header>
@@ -69,6 +67,7 @@
 
   <main>
     <!-- posters and field para filtrar y ordenar -->
+    <div class="upperDropdowns">
     <form class="Dropdown" id="DropDownFilms">
       <label for="peliculas">Películas</label>
       <select name="selectFilm" id="selectFilm">
@@ -76,7 +75,7 @@
       </select>
 
     </form>
-
+  
     <form id="DropdownSort" class="Dropdown">
       <label for="DropdownSort">Sort</label>
       <select name="Sortby" id="selectSort">
@@ -87,6 +86,7 @@
         <option value="Z_A">Z-A</option>
       </select>
     </form>
+  </div>
 
     <div id="Posters" class="ImgContainers"></div>
   </main>
