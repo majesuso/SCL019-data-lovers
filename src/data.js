@@ -5,7 +5,6 @@ export const sortAZ = (data) => {
     });
     return sortedData;
 }
-window.sortAZ = sortAZ;
 
 export const sortZA = (data) => {
     let sortedRev=[];
@@ -14,26 +13,23 @@ export const sortZA = (data) => {
     });
     return sortedRev;
 }
-window.sortZA = sortZA;
 
 export const sortDataYear = (data) => {
-
     const sortedYear = data.sort((a,b) => {
         return b.release_date - a.release_date;
     });
 return sortedYear;
 }
 
-window.sortDataYear = sortDataYear;
-
 export const sortOldest = (data) => {
-
     const sortedOld = data.sort((a,b) => {
         return a.release_date - b.release_date;
     });
 return sortedOld;
 }
 
-window.sortOldest = sortOldest;
-
-
+export const FiltredFilm = (data, film) => {
+    const FilmSel = data.filter(element => element.id == film);
+    console.log(FilmSel);
+    return FilmSel;
+}
