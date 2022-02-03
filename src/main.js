@@ -3,12 +3,11 @@ import {FiltredFilm, sortOldest, sortZA, sortAZ, sortDataYear} from "./data.js";
 
 const allFilms = data.films; // Get data ghibli.js
 
-const clearPage = () => {
+const clearPage = () => { // Función para limpiar contenedor de posters
     document.getElementById("Posters").innerHTML = "";
 }
 
-const mainPoster = (films) => {
-    // document.getElementById("Posters").innerHTML = "";
+const mainPoster = (films) => { // Función para crear boxes para cada poster
     for (let i = 0; i < films.length; ++i) {
         document.getElementById("Posters").innerHTML += `<div class="subContainerPoster">
         <div id="${allFilms[i].id}" class="containerImg">
@@ -27,11 +26,11 @@ const mainPoster = (films) => {
           });
 };
 
-window.addEventListener("load",() => {
+window.addEventListener("load", () => { // cargar todos los poster al cargar la página
     mainPoster(allFilms);
 });
 
-const modalDisplay = (film) => {
+const modalDisplay = (film) => { // Función modal box de tarjeta de película
     modal.style.display = "block";
     let filmSelected = FiltredFilm(allFilms, film);
 
@@ -54,6 +53,7 @@ const modalDisplay = (film) => {
         document.getElementById("myYear").innerHTML = dateFilm;
         document.getElementById("RT_Score").innerHTML = rtScoreFilm;
 
+        // ******************** DATA DE PERSONAJES ********************
         let arrayCharacters = filmArray.people //Toma la propiedad de people del array de filmSelected 
         //Recorre el array de people del film seleccionado
         
@@ -82,26 +82,26 @@ let dropdownSort = document.getElementById("selectSort");
 dropdownSort.addEventListener('change', function () {
 
     let valueSort = dropdownSort.value;
-      
-    if(valueSort === "Newest"){
+
+    if (valueSort === "Newest") { // Ordena por año descendente
         let infoSorted = sortDataYear(allFilms);
         clearPage();
         mainPoster(infoSorted);
     }
 
-    if(valueSort === "Oldest"){
+    if (valueSort === "Oldest") { // Ordena por año ascendente
         let OldestYear = sortOldest(allFilms);
         clearPage();
         mainPoster(OldestYear);
     }
 
-    if (valueSort === "A_Z") {
+    if (valueSort === "A_Z") { // Ordena alfabéticamente de A a Z
         let infoSort = sortAZ(allFilms);
         clearPage();
         mainPoster(infoSort);
     }
 
-    if (valueSort === "Z_A") {
+    if (valueSort === "Z_A") { // Ordena alfabéticamente de Z a A
         let infoSortR = sortZA(allFilms);
         clearPage();
         mainPoster(infoSortR);
@@ -123,7 +123,31 @@ dropdownFilms.addEventListener('change', function () {
     modalDisplay(valueFilm);
 });
 
-//usando y llamando modal box
+// ******************** SELECTOR DIRECTOR ********************
+let dropdownDirector = document.getElementById("selectDirector");
+console.log(dropdownDirector);
+let allDirectors = new Set(); // crear un nuevo set (array iterable) sin repetir un elemento
+
+for (let i = 0; i < allFilms.length; ++i) {
+    let film = allFilms[i];
+    allDirectors.add(film.director); // se agregan los elementos al set
+}
+
+let arrayAllDir = Array.from(allDirectors); // convirtiendo set en array
+
+for(let i = 0; i < arrayAllDir.length; ++i){
+    let option = document.createElement("option"); // se crea un nodo de tipo option
+    option.setAttribute("value",arrayAllDir[i]); // se le da un atributo al nodo option
+    option.textContent = arrayAllDir[i]; // Texto que aparece en dropdown
+    dropdownDirector.appendChild(option); // se inserta el nodo en nuestro nodo existente en html (dropdownDirector)
+}
+
+
+// dropdownDirector.addEventListener('change', function () {
+//     let valueDirector = dropdownDirector.options[dropdownDirector.selectedIndex].value;
+
+// })
+
 // Get the modal
 var modal = document.getElementById("myModal");
 var span = document.getElementsByClassName("close")[0];
