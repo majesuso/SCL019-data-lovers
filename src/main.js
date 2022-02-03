@@ -1,5 +1,5 @@
 import data from './data/ghibli/ghibli.js';
-import {sortAZ, sortDataYear} from "./data.js";
+import { sortAZ, sortDataYear } from "./data.js";
 
 const allFilms = data.films; // Get data ghibli.js
 
@@ -19,7 +19,7 @@ const mainPoster = (films) => { // Función para crear boxes para cada poster
     }
 };
 
-window.addEventListener("load",() => { // cargar todos los poster al cargar la página
+window.addEventListener("load", () => { // cargar todos los poster al cargar la página
     mainPoster(allFilms);
 });
 
@@ -49,7 +49,7 @@ const modalDisplay = (film) => { // Función modal box de tarjeta de película
 
         // ******************** DATA DE PERSONAJES ********************
         let arrayCharacters = filmArray.people //Toma la propiedad de people del array de filmSelected 
-        
+
         const charContainer = document.getElementById("Characters"); //Llama a un div de html
         charContainer.innerHTML = ""; // vacia este container before use
 
@@ -90,14 +90,14 @@ let dropdownSort = document.getElementById("selectSort");
 dropdownSort.addEventListener('change', function () {
 
     let valueSort = dropdownSort.value;
-      
-    if(valueSort === "Newest"){ // Ordena por año descendente
+
+    if (valueSort === "Newest") { // Ordena por año descendente
         let infoSorted = sortDataYear(allFilms);
         clearPage();
         mainPoster(infoSorted);
     }
 
-    if(valueSort === "Oldest"){ // Ordena por año ascendente
+    if (valueSort === "Oldest") { // Ordena por año ascendente
         let OldestYear = sortOldest(allFilms);
         clearPage();
         mainPoster(OldestYear);
@@ -135,22 +135,30 @@ dropdownFilms.addEventListener('change', function () {
 
 // ******************** SELECTOR DIRECTOR ********************
 let dropdownDirector = document.getElementById("selectDirector");
+console.log(dropdownDirector);
+let allDirectors = new Set(); // crear un nuevo set (array iterable) sin repetir un elemento
 
-for(let i=0; i<allFilms.length; ++i){
-    let arrayFilms = allFilms[i];
-    let arrayDirector = new Array(arrayFilms.director);
-    let granArray = arrayDirector.push(arrayDirector);
-    console.log(granArray);
-    // let setArrayDir = new Set(arrayDirector);
-    // let result = [setArrayDir]
-    // console.log(result);
-    // dropdownDirector[dropdownDirector.length] = new Option(setArrayDir);
+for (let i = 0; i < allFilms.length; ++i) {
+    let film = allFilms[i];
+    allDirectors.add(film.director); // se agregan los elementos al set
 }
 
-dropdownDirector.addEventListener('change', function (){
-    let valueDirector = dropdownDirector.options[dropdownDirector.selectedIndex].value;
+let arrayAllDir = Array.from(allDirectors); // convirtiendo set en array
+console.log(arrayAllDir);
 
-})
+for(let i = 0; i < arrayAllDir.length; ++i){
+    
+    let option = document.createElement("option");
+    option.setAttribute("value",arrayAllDir[i]);
+    option.textContent = arrayAllDir[i];
+    dropdownDirector.appendChild(option);
+}
+
+
+// dropdownDirector.addEventListener('change', function () {
+//     let valueDirector = dropdownDirector.options[dropdownDirector.selectedIndex].value;
+
+// })
 
 // Get the modal
 var modal = document.getElementById("myModal");
