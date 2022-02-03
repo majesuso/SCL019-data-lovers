@@ -28,8 +28,20 @@ export const sortOldest = (data) => {
 return sortedOld;
 }
 
-export const FiltredFilm = (data, film) => {
-    const FilmSel = data.filter(element => element.id == film);
-    console.log(FilmSel);
-    return FilmSel;
+export const filtredFilm = (data, film) => {
+    const filmSel = data.filter(element => element.id == film);
+    console.log(filmSel);
+    return filmSel;
+}
+
+export const filtredDirector = (data, director) => {
+    const dirSel = data.filter(element => element.director == director);
+    console.log(dirSel);
+    return dirSel;
+}
+
+export const filtredGender = (data, gender) => {
+    const genSel = data.filter(element => element.gender == gender);
+    console.log(genSel);
+    return genSel;
 }

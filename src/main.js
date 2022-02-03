@@ -1,5 +1,5 @@
 import data from './data/ghibli/ghibli.js';
-import {FiltredFilm, sortOldest, sortZA, sortAZ, sortDataYear} from "./data.js";
+import { filtredFilm, filtredDirector, filtredGender, sortOldest, sortZA, sortAZ, sortDataYear } from "./data.js";
 
 const allFilms = data.films; // Get data ghibli.js
 
@@ -18,12 +18,12 @@ const mainPoster = (films) => { // Función para crear boxes para cada poster
         </div>`;
     }
     document.querySelectorAll('.containerImg').forEach(item => {
-            item.addEventListener('click', event => {
-                console.log(item);
-                let film_id = item.id; //dropdownFilms.options[dropdownFilms.selectedIndex].value; - 
-                modalDisplay(film_id);
-            })
-          });
+        item.addEventListener('click', event => {
+            console.log(item);
+            let film_id = item.id; //dropdownFilms.options[dropdownFilms.selectedIndex].value; - 
+            modalDisplay(film_id);
+        })
+    });
 };
 
 window.addEventListener("load", () => { // cargar todos los poster al cargar la página
@@ -32,7 +32,7 @@ window.addEventListener("load", () => { // cargar todos los poster al cargar la 
 
 const modalDisplay = (film) => { // Función modal box de tarjeta de película
     modal.style.display = "block";
-    let filmSelected = FiltredFilm(allFilms, film);
+    let filmSelected = filtredFilm(allFilms, film);
 
     //Recorriendo array del film seleccionado
     for (let i = 0; i < filmSelected.length; ++i) {
@@ -56,7 +56,7 @@ const modalDisplay = (film) => { // Función modal box de tarjeta de película
         // ******************** DATA DE PERSONAJES ********************
         let arrayCharacters = filmArray.people //Toma la propiedad de people del array de filmSelected 
         //Recorre el array de people del film seleccionado
-        
+
         const charContainer = document.getElementById("Characters"); //Llama a un div de html
         charContainer.innerHTML = ""; // vacia este container before use
 
@@ -74,8 +74,18 @@ const modalDisplay = (film) => { // Función modal box de tarjeta de película
             }
 
             charContainer.innerHTML += imgChar(arrayCharacters[i].img)//se le suma la url de img a cada div
+           
+            let dropdownGender = document.getElementById("selectGender");
+            dropdownGender.addEventListener('change', function () {
+                let valueGender = dropdownGender.options[dropdownGender.selectedIndex].value;
+                let sortGender = filtredGender(arrayCharacters, valueGender);
+                charContainer.innerHTML = "";
+                imgChar(sortGender);
+
+            });
         }
     };
+
 }
 // Section Sorting:
 let dropdownSort = document.getElementById("selectSort");
@@ -125,7 +135,7 @@ dropdownFilms.addEventListener('change', function () {
 
 // ******************** SELECTOR DIRECTOR ********************
 let dropdownDirector = document.getElementById("selectDirector");
-console.log(dropdownDirector);
+
 let allDirectors = new Set(); // crear un nuevo set (array iterable) sin repetir un elemento
 
 for (let i = 0; i < allFilms.length; ++i) {
@@ -135,18 +145,21 @@ for (let i = 0; i < allFilms.length; ++i) {
 
 let arrayAllDir = Array.from(allDirectors); // convirtiendo set en array
 
-for(let i = 0; i < arrayAllDir.length; ++i){
+for (let i = 0; i < arrayAllDir.length; ++i) {
     let option = document.createElement("option"); // se crea un nodo de tipo option
-    option.setAttribute("value",arrayAllDir[i]); // se le da un atributo al nodo option
+    option.setAttribute("value", arrayAllDir[i]); // se le da un atributo al nodo option
     option.textContent = arrayAllDir[i]; // Texto que aparece en dropdown
     dropdownDirector.appendChild(option); // se inserta el nodo en nuestro nodo existente en html (dropdownDirector)
 }
 
 
-// dropdownDirector.addEventListener('change', function () {
-//     let valueDirector = dropdownDirector.options[dropdownDirector.selectedIndex].value;
+dropdownDirector.addEventListener('change', function () {
 
-// })
+    let valueDirector = dropdownDirector.options[dropdownDirector.selectedIndex].value;
+    let directorSelected = filtredDirector(allFilms, valueDirector);
+    clearPage();
+    mainPoster(directorSelected);
+})
 
 // Get the modal
 var modal = document.getElementById("myModal");
