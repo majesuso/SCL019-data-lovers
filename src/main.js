@@ -19,7 +19,7 @@ const mainPoster = (films) => { // Función para crear boxes para cada poster
     }
     document.querySelectorAll('.containerImg').forEach(item => {
         item.addEventListener('click', event => {
-            console.log(item);
+            //console.log(item);
             let film_id = item.id; //dropdownFilms.options[dropdownFilms.selectedIndex].value; - 
             modalDisplay(film_id);
         })
@@ -79,8 +79,9 @@ const modalDisplay = (film) => { // Función modal box de tarjeta de película
             dropdownGender.addEventListener('change', function () {
                 let valueGender = dropdownGender.options[dropdownGender.selectedIndex].value;
                 let sortGender = filtredGender(arrayCharacters, valueGender);
+                console.log(sortGender);
                 charContainer.innerHTML = "";
-                imgChar(sortGender);
+                charContainer.innerHTML += imgChar(sortGender);
 
             });
         }

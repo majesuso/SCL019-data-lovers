@@ -30,7 +30,6 @@ return sortedOld;
 
 export const filtredFilm = (data, film) => {
     const filmSel = data.filter(element => element.id == film);
-    console.log(filmSel);
     return filmSel;
 }
 
@@ -42,6 +41,5 @@ export const filtredDirector = (data, director) => {
 
 export const filtredGender = (data, gender) => {
     const genSel = data.filter(element => element.gender == gender);
-    console.log(genSel);
     return genSel;
 }
