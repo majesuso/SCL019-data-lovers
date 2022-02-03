@@ -1,13 +1,13 @@
 import data from './data/ghibli/ghibli.js';
-import {sortAZ, sortDataYear} from "./data.js";
+import { sortAZ, sortDataYear } from "./data.js";
 
 const allFilms = data.films; // Get data ghibli.js
 
-const clearPage = () => {
+const clearPage = () => { // Función para limpiar contenedor de posters
     document.getElementById("Posters").innerHTML = "";
 }
 
-const mainPoster = (films) => {
+const mainPoster = (films) => { // Función para crear boxes para cada poster
     for (let i = 0; i < films.length; ++i) {
         document.getElementById("Posters").innerHTML += `<div class="subContainerPoster">
         <div id="${allFilms[i].id}" class="containerImg">
@@ -26,14 +26,14 @@ const mainPoster = (films) => {
           });
 };
 
-window.addEventListener("load",() => {
+window.addEventListener("load", () => { // cargar todos los poster al cargar la página
     mainPoster(allFilms);
 });
 
-const modalDisplay = (film) => {
+const modalDisplay = (film) => { // Función modal box de tarjeta de película
     modal.style.display = "block";
     let filmSelected = allFilms.filter(element => element.id == film); // Filtra según el id == valor del indice seleccionado
-
+    // ******************** DATA FILM  ********************
     //Recorriendo array del film seleccionado
     for (let i = 0; i < filmSelected.length; ++i) {
 
@@ -54,15 +54,15 @@ const modalDisplay = (film) => {
         document.getElementById("RT_Score").innerHTML = rtScoreFilm;
         // modal.style.display = "block";
 
+        // ******************** DATA DE PERSONAJES ********************
         let arrayCharacters = filmArray.people //Toma la propiedad de people del array de filmSelected 
-        //Recorre el array de people del film seleccionado
-        
+
         const charContainer = document.getElementById("Characters"); //Llama a un div de html
         charContainer.innerHTML = ""; // vacia este container before use
 
         for (let i = 0; i < arrayCharacters.length; ++i) {
             let nameCharacter = arrayCharacters[i].name; //Contiene propiedad name del array
-            const imgChar = (arrayCharacters) => { //constante que toma la función de retornar un div por cada personaje
+            const imgChar = (arrayCharacters) => { //constante que tiene la función de retornar un div por cada personaje
                 return `<div class="subContainerChar">
                 <div class="imgChar">
                 <img src="${arrayCharacters}" width="150">
@@ -90,30 +90,33 @@ const modalDisplay = (film) => {
 //     })
 //   });
 
+
+// ******************** SELECTOR SORT ********************
+
 let dropdownSort = document.getElementById("selectSort");
 dropdownSort.addEventListener('change', function () {
 
     let valueSort = dropdownSort.value;
-      
-    if(valueSort === "Newest"){
+
+    if (valueSort === "Newest") { // Ordena por año descendente
         let infoSorted = sortDataYear(allFilms);
         clearPage();
         mainPoster(infoSorted);
     }
 
-    if(valueSort === "Oldest"){
+    if (valueSort === "Oldest") { // Ordena por año ascendente
         let OldestYear = sortOldest(allFilms);
         clearPage();
         mainPoster(OldestYear);
     }
 
-    if (valueSort === "A_Z") {
+    if (valueSort === "A_Z") { // Ordena alfabéticamente de A a Z
         let infoSort = sortAZ(allFilms);
         clearPage();
         mainPoster(infoSort);
     }
 
-    if (valueSort === "Z_A") {
+    if (valueSort === "Z_A") { // Ordena alfabéticamente de Z a A
         let infoSortR = sortZA(allFilms);
         clearPage();
         mainPoster(infoSortR);
@@ -121,6 +124,7 @@ dropdownSort.addEventListener('change', function () {
 
 });
 
+// ******************** SELECTOR FILM ********************
 let dropdownFilms = document.getElementById("selectFilm"); // Get dropdown element from DOM
 
 // Loop through the array
@@ -136,9 +140,34 @@ dropdownFilms.addEventListener('change', function () {
     modalDisplay(valueFilm);
 });
 
-//usando y llamando modal box
-// Get the modal
+// ******************** SELECTOR DIRECTOR ********************
+let dropdownDirector = document.getElementById("selectDirector");
+console.log(dropdownDirector);
+let allDirectors = new Set(); // crear un nuevo set (array iterable) sin repetir un elemento
 
+for (let i = 0; i < allFilms.length; ++i) {
+    let film = allFilms[i];
+    allDirectors.add(film.director); // se agregan los elementos al set
+}
+
+let arrayAllDir = Array.from(allDirectors); // convirtiendo set en array
+console.log(arrayAllDir);
+
+for(let i = 0; i < arrayAllDir.length; ++i){
+    
+    let option = document.createElement("option");
+    option.setAttribute("value",arrayAllDir[i]);
+    option.textContent = arrayAllDir[i];
+    dropdownDirector.appendChild(option);
+}
+
+
+// dropdownDirector.addEventListener('change', function () {
+//     let valueDirector = dropdownDirector.options[dropdownDirector.selectedIndex].value;
+
+// })
+
+// Get the modal
 var modal = document.getElementById("myModal");
 var span = document.getElementsByClassName("close")[0];
 span.onclick = function () {
