@@ -1,5 +1,5 @@
 import data from './data/ghibli/ghibli.js';
-import {sortAZ, sortDataYear} from "./data.js";
+import {FiltredFilm, sortOldest, sortZA, sortAZ, sortDataYear} from "./data.js";
 
 const allFilms = data.films; // Get data ghibli.js
 
@@ -33,7 +33,7 @@ window.addEventListener("load",() => {
 
 const modalDisplay = (film) => {
     modal.style.display = "block";
-    let filmSelected = allFilms.filter(element => element.id == film); // Filtra según el id == valor del indice seleccionado
+    let filmSelected = FiltredFilm(allFilms, film);
 
     //Recorriendo array del film seleccionado
     for (let i = 0; i < filmSelected.length; ++i) {
@@ -53,7 +53,6 @@ const modalDisplay = (film) => {
         document.getElementById("Director").innerHTML = directorFilm;
         document.getElementById("myYear").innerHTML = dateFilm;
         document.getElementById("RT_Score").innerHTML = rtScoreFilm;
-        // modal.style.display = "block";
 
         let arrayCharacters = filmArray.people //Toma la propiedad de people del array de filmSelected 
         //Recorre el array de people del film seleccionado
@@ -78,19 +77,7 @@ const modalDisplay = (film) => {
         }
     };
 }
-
-// const containerImg = document.querySelector('.subContainerPoster');
-// const Img = containerImg.querySelectorAll('.containerImg');
-
-// console.log(containerImg);
-// document.querySelectorAll('.containerImg').forEach(item => {
-//     item.addEventListener('click', event => {
-//         console.log(item);
-//         let film_id = item.id; //dropdownFilms.options[dropdownFilms.selectedIndex].value; - 
-//         modalDisplay(film_id);
-//     })
-//   });
-
+// Section Sorting:
 let dropdownSort = document.getElementById("selectSort");
 dropdownSort.addEventListener('change', function () {
 
@@ -122,11 +109,10 @@ dropdownSort.addEventListener('change', function () {
 
 });
 
+//Sector Dropdow peliculas
 let dropdownFilms = document.getElementById("selectFilm"); // Get dropdown element from DOM
 
-// Loop through the array
 for (let i = 0; i < allFilms.length; ++i) {
-    // Append the element to the end of Array list
     let arrayFilms = allFilms[i];
     // la capacidad de dropdownFilms[] se declara según la propiedad title e id del objeto/array, arrayFilms
     dropdownFilms[dropdownFilms.length] = new Option(arrayFilms.title, arrayFilms.id);
@@ -139,7 +125,6 @@ dropdownFilms.addEventListener('change', function () {
 
 //usando y llamando modal box
 // Get the modal
-
 var modal = document.getElementById("myModal");
 var span = document.getElementsByClassName("close")[0];
 span.onclick = function () {
