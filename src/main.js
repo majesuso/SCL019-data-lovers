@@ -151,14 +151,12 @@ for (let i = 0; i < allFilms.length; ++i) {
 }
 
 let arrayAllDir = Array.from(allDirectors); // convirtiendo set en array
-console.log(arrayAllDir);
 
 for(let i = 0; i < arrayAllDir.length; ++i){
-    
-    let option = document.createElement("option");
-    option.setAttribute("value",arrayAllDir[i]);
-    option.textContent = arrayAllDir[i];
-    dropdownDirector.appendChild(option);
+    let option = document.createElement("option"); // se crea un nodo de tipo option
+    option.setAttribute("value",arrayAllDir[i]); // se le da un atributo al nodo option
+    option.textContent = arrayAllDir[i]; // Texto que aparece en dropdown
+    dropdownDirector.appendChild(option); // se inserta el nodo en nuestro nodo existente en html (dropdownDirector)
 }
 
 
