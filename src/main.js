@@ -18,8 +18,7 @@ const mainPoster = (films) => { // Función para crear boxes para cada poster
         </div>`;
     }
     document.querySelectorAll('.containerImg').forEach(item => {
-        item.addEventListener('click', event => {
-            console.log(item);
+        item.addEventListener('click', () => {
             let film_id = item.id; //dropdownFilms.options[dropdownFilms.selectedIndex].value; - 
             modalDisplay(film_id);
         })
@@ -62,7 +61,7 @@ const modalDisplay = (film) => { // Función modal box de tarjeta de película
 
         for (let i = 0; i < arrayCharacters.length; ++i) {
             let nameCharacter = arrayCharacters[i].name; //Contiene propiedad name del array
-            const imgChar = (arrayCharacters) => { //constante que toma la función de retornar un div por cada personaje
+            const imgChar = (arrayCharacters, nameCharacter) => { //constante que toma la función de retornar un div por cada personaje
                 return `<div class="subContainerChar">
                 <div class="imgChar">
                 <img src="${arrayCharacters}" width="150">
@@ -73,17 +72,18 @@ const modalDisplay = (film) => { // Función modal box de tarjeta de película
                 </div>`;
             }
 
-            charContainer.innerHTML += imgChar(arrayCharacters[i].img)//se le suma la url de img a cada div
+            charContainer.innerHTML += imgChar(arrayCharacters[i].img, nameCharacter)//se le suma la url de img a cada div
            
             let dropdownGender = document.getElementById("selectGender");
             dropdownGender.addEventListener('change', function () {
+                // let valueGender = [];
                 let valueGender = dropdownGender.options[dropdownGender.selectedIndex].value;
                 let sortGender = filtredGender(arrayCharacters, valueGender);
-                console.log(sortGender);
+                // console.log(sortGender);
                 charContainer.innerHTML = "";  
                 for (let i = 0; i < sortGender.length; ++i) { 
                     // let charName = sortGender[i].name;
-                charContainer.innerHTML += imgChar(sortGender[i].img);
+                charContainer.innerHTML += imgChar(sortGender[i].img, sortGender[i].name);
                 }
             });
         }
@@ -140,7 +140,7 @@ dropdownFilms.addEventListener('change', function () {
 let dropdownDirector = document.getElementById("selectDirector");
 
 let allDirectors = new Set(); // crear un nuevo set (array iterable) sin repetir un elemento
-
+// let allDirectors = [];
 for (let i = 0; i < allFilms.length; ++i) {
     let film = allFilms[i];
     allDirectors.add(film.director); // se agregan los elementos al set
