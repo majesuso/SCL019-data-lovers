@@ -81,14 +81,16 @@ const modalDisplay = (film) => { // Función modal box de tarjeta de película
                 let valueGender = dropdownGender.options[dropdownGender.selectedIndex].value;
                 let sortGender = filtredGender(arrayCharacters, valueGender);
                 console.log(sortGender);
-                charContainer.innerHTML = "";
-                charContainer.innerHTML += imgChar(sortGender);
-
+                charContainer.innerHTML = "";  
+                for (let i = 0; i < sortGender.length; ++i) { 
+                    // let charName = sortGender[i].name;
+                charContainer.innerHTML += imgChar(sortGender[i].img);
+                }
             });
         }
-    };
-
+    }
 }
+
 // Section Sorting:
 let dropdownSort = document.getElementById("selectSort");
 dropdownSort.addEventListener('change', function () {
@@ -128,12 +130,12 @@ for (let i = 0; i < allFilms.length; ++i) {
     let arrayFilms = allFilms[i];
     // la capacidad de dropdownFilms[] se declara según la propiedad title e id del objeto/array, arrayFilms
     dropdownFilms[dropdownFilms.length] = new Option(arrayFilms.title, arrayFilms.id);
-};
+}
 
 dropdownFilms.addEventListener('change', function () {
     let valueFilm = dropdownFilms.options[dropdownFilms.selectedIndex].value; //valor de Film sera igual al valor del indice seleccionado
     modalDisplay(valueFilm);
-});
+})
 
 // ******************** SELECTOR DIRECTOR ********************
 let dropdownDirector = document.getElementById("selectDirector");
@@ -154,9 +156,7 @@ for (let i = 0; i < arrayAllDir.length; ++i) {
     dropdownDirector.appendChild(option); // se inserta el nodo en nuestro nodo existente en html (dropdownDirector)
 }
 
-
 dropdownDirector.addEventListener('change', function () {
-
     let valueDirector = dropdownDirector.options[dropdownDirector.selectedIndex].value;
     let directorSelected = filtredDirector(allFilms, valueDirector);
     clearPage();
