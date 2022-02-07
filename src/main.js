@@ -91,33 +91,27 @@ const modalDisplay = (film) => { // Función modal box de tarjeta de película
 // Section Sorting:
 let dropdownSort = document.getElementById("selectSort");
 dropdownSort.addEventListener('change', function () {
-
     let valueSort = dropdownSort.value;
-
-    if (valueSort === "Newest") { // Ordena por año descendente
-        let infoSorted = sortDataYear(allFilms);
-        clearPage();
-        mainPoster(infoSorted);
-    }
-
-    if (valueSort === "Oldest") { // Ordena por año ascendente
-        let OldestYear = sortOldest(allFilms);
-        clearPage();
-        mainPoster(OldestYear);
-    }
-
-    if (valueSort === "A_Z") { // Ordena alfabéticamente de A a Z
-        let infoSort = sortAZ(allFilms);
-        clearPage();
-        mainPoster(infoSort);
-    }
-
-    if (valueSort === "Z_A") { // Ordena alfabéticamente de Z a A
-        let infoSortR = sortZA(allFilms);
-        clearPage();
-        mainPoster(infoSortR);
-    }
-
+        if (valueSort === "Newest") { // Ordena por año descendente
+            let infoSorted = sortDataYear(allFilms);
+            clearPage();
+            mainPoster(infoSorted);
+        }
+        if (valueSort === "Oldest") { // Ordena por año ascendente
+            let OldestYear = sortOldest(allFilms);
+            clearPage();
+            mainPoster(OldestYear);
+        }
+        if (valueSort === "A_Z") { // Ordena alfabéticamente de A a Z
+            let infoSort = sortAZ(allFilms);
+            clearPage();
+            mainPoster(infoSort);
+        }
+        if (valueSort === "Z_A") { // Ordena alfabéticamente de Z a A
+            let infoSortR = sortZA(allFilms);
+            clearPage();
+            mainPoster(infoSortR);
+        }
 });
 
 //Sector Dropdown peliculas
