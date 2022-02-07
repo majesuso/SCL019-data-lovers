@@ -19,7 +19,7 @@ const mainPoster = (films) => { // Función para crear boxes para cada poster
     }
     document.querySelectorAll('.containerImg').forEach(item => {
         item.addEventListener('click', () => {
-            let film_id = item.id; //dropdownFilms.options[dropdownFilms.selectedIndex].value; - 
+            let film_id = item.id;
             modalDisplay(film_id);
         })
     });
@@ -72,17 +72,15 @@ const modalDisplay = (film) => { // Función modal box de tarjeta de película
                 </div>`;
             }
 
-            charContainer.innerHTML += imgChar(arrayCharacters[i].img, nameCharacter)//se le suma la url de img a cada div
+            charContainer.innerHTML += imgChar(arrayCharacters[i].img, nameCharacter)//se le suma la url de img mas nombre a cada div
            
             let dropdownGender = document.getElementById("selectGender");
+            dropdownGender.selectedIndex = 0;
             dropdownGender.addEventListener('change', function () {
-                // let valueGender = [];
                 let valueGender = dropdownGender.options[dropdownGender.selectedIndex].value;
                 let sortGender = filtredGender(arrayCharacters, valueGender);
-                // console.log(sortGender);
                 charContainer.innerHTML = "";  
                 for (let i = 0; i < sortGender.length; ++i) { 
-                    // let charName = sortGender[i].name;
                 charContainer.innerHTML += imgChar(sortGender[i].img, sortGender[i].name);
                 }
             });
@@ -122,7 +120,7 @@ dropdownSort.addEventListener('change', function () {
 
 });
 
-//Sector Dropdow peliculas
+//Sector Dropdown peliculas
 let dropdownFilms = document.getElementById("selectFilm"); // Get dropdown element from DOM
 
 for (let i = 0; i < allFilms.length; ++i) {

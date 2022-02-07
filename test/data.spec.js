@@ -1,7 +1,8 @@
-import { sortOldest, sortDataYear } from './data.js';
+import { sortOldest, sortDataYear, filtredDirector, filtredFilm } from './data.js';
 
 const FilmData = [
   {
+    "id": "2baf70d1-42bb-4437-b551-e5fed5a87abe",
     "title": "Castle in the Sky",
     "director": "Hayao Miyazaki",
     "producer": "Isao Takahata",
@@ -9,6 +10,7 @@ const FilmData = [
     "rt_score": "95"
   },
   {
+    "id": "45db04e4-304a-4933-9823-33f389e8d74d",
     "title": "From Up on Poppy Hill",
     "director": "Gorō Miyazaki",
     "producer": "Toshio Suzuki",
@@ -16,6 +18,7 @@ const FilmData = [
     "rt_score": "83"
   },
   {
+    "id": "58611129-2dbc-4a81-a72f-77ddfc1b1b49",
     "title": "My Neighbor Totoro",
     "director": "Hayao Miyazaki",
     "producer": "Hayao Miyazaki",
@@ -23,6 +26,7 @@ const FilmData = [
     "rt_score": "93"
   },
   {
+    "id": "dc2e6bd1-8156-4886-adff-b39e6043af0c",
     "title": "Spirited Away",
     "director": "Hayao Miyazaki",
     "producer": "Toshio Suzuki",
@@ -30,7 +34,7 @@ const FilmData = [
     "rt_score": "97"
   }
 ]
-
+// sort by year and vice versa
 describe('sortOldest returns Films in order from oldest to newest', () => {
   it('is a function', () => {
     expect(typeof sortOldest).toBe('function');
@@ -59,5 +63,37 @@ describe('sortDataYear returns Films in order from newest to oldest', () => {
     expect(dataYear[1].title).toEqual('My Neighbor Totoro');
     expect(dataYear[2].title).toEqual('Spirited Away');
     expect(dataYear[3].title).toEqual('From Up on Poppy Hill');
+  });
+});
+
+// selected director
+describe('filtredDirector return films for selected director', () => {
+  it('is a function', () => {
+    expect(typeof filtredDirector).toBe('function');
+  });
+
+  it('Return film for director Gorō Miyazaki: [From Up on Poppy Hill]', () => {
+
+    let dataDirector = filtredDirector(FilmData, ["Gorō Miyazaki"]);
+    expect(dataDirector[0].title).toEqual('From Up on Poppy Hill');
+  });
+
+  it('Return selected item: Gorō Miyazaki', () => {
+    let dataDirector = filtredDirector(FilmData, ["Gorō Miyazaki"]);
+    expect(dataDirector[0].director).toEqual('Gorō Miyazaki');
+  });
+
+});
+
+// selectedfilm
+describe('filtredFilm return film id', () => {
+  it('is a function', () => {
+    expect(typeof filtredFilm).toBe('function');
+  });
+
+  it('Return film Id for selected [From Up on Poppy Hill]: ', () => {
+
+    let dataFilm = filtredFilm(FilmData, ["From Up on Poppy Hill"]);
+    expect(dataFilm[0].id).toEqual("45db04e4-304a-4933-9823-33f389e8d74d");
   });
 });
