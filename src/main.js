@@ -18,9 +18,8 @@ const mainPoster = (films) => { // Función para crear boxes para cada poster
         </div>`;
     }
     document.querySelectorAll('.containerImg').forEach(item => {
-        item.addEventListener('click', event => {
-            //console.log(item);
-            let film_id = item.id; //dropdownFilms.options[dropdownFilms.selectedIndex].value; - 
+        item.addEventListener('click', () => {
+            let film_id = item.id;
             modalDisplay(film_id);
         })
     });
@@ -62,8 +61,7 @@ const modalDisplay = (film) => { // Función modal box de tarjeta de película
 
         for (let i = 0; i < arrayCharacters.length; ++i) {
             let nameCharacter = arrayCharacters[i].name; //Contiene propiedad name del array
-            let imgCharacter = arrayCharacters[i].img
-            const imgChar = (arrayCharacters) => { //constante que toma la función de retornar un div por cada personaje
+            const imgChar = (arrayCharacters, nameCharacter) => { //constante que toma la función de retornar un div por cada personaje
                 return `<div class="subContainerChar">
                 <div class="imgChar">
                 <img src="${imgCharacter}" width="150">
@@ -74,17 +72,16 @@ const modalDisplay = (film) => { // Función modal box de tarjeta de película
                 </div>`;
             }
 
-            charContainer.innerHTML += imgChar()//se le suma la url de img a cada div
+            charContainer.innerHTML += imgChar(arrayCharacters[i].img, nameCharacter)//se le suma la url de img mas nombre a cada div
            
             let dropdownGender = document.getElementById("selectGender");
+            dropdownGender.selectedIndex = 0;
             dropdownGender.addEventListener('change', function () {
                 let valueGender = dropdownGender.options[dropdownGender.selectedIndex].value;
                 let sortGender = filtredGender(arrayCharacters, valueGender);
-                console.log(sortGender);
                 charContainer.innerHTML = "";  
                 for (let i = 0; i < sortGender.length; ++i) { 
-                    // let charName = sortGender[i].name;
-                charContainer.innerHTML += imgChar(sortGender[i].img);
+                charContainer.innerHTML += imgChar(sortGender[i].img, sortGender[i].name);
                 }
             });
         }
@@ -94,36 +91,30 @@ const modalDisplay = (film) => { // Función modal box de tarjeta de película
 // Section Sorting:
 let dropdownSort = document.getElementById("selectSort");
 dropdownSort.addEventListener('change', function () {
-
     let valueSort = dropdownSort.value;
-
-    if (valueSort === "Newest") { // Ordena por año descendente
-        let infoSorted = sortDataYear(allFilms);
-        clearPage();
-        mainPoster(infoSorted);
-    }
-
-    if (valueSort === "Oldest") { // Ordena por año ascendente
-        let OldestYear = sortOldest(allFilms);
-        clearPage();
-        mainPoster(OldestYear);
-    }
-
-    if (valueSort === "A_Z") { // Ordena alfabéticamente de A a Z
-        let infoSort = sortAZ(allFilms);
-        clearPage();
-        mainPoster(infoSort);
-    }
-
-    if (valueSort === "Z_A") { // Ordena alfabéticamente de Z a A
-        let infoSortR = sortZA(allFilms);
-        clearPage();
-        mainPoster(infoSortR);
-    }
-
+        if (valueSort === "Newest") { // Ordena por año descendente
+            let infoSorted = sortDataYear(allFilms);
+            clearPage();
+            mainPoster(infoSorted);
+        }
+        if (valueSort === "Oldest") { // Ordena por año ascendente
+            let OldestYear = sortOldest(allFilms);
+            clearPage();
+            mainPoster(OldestYear);
+        }
+        if (valueSort === "A_Z") { // Ordena alfabéticamente de A a Z
+            let infoSort = sortAZ(allFilms);
+            clearPage();
+            mainPoster(infoSort);
+        }
+        if (valueSort === "Z_A") { // Ordena alfabéticamente de Z a A
+            let infoSortR = sortZA(allFilms);
+            clearPage();
+            mainPoster(infoSortR);
+        }
 });
 
-//Sector Dropdow peliculas
+//Sector Dropdown peliculas
 let dropdownFilms = document.getElementById("selectFilm"); // Get dropdown element from DOM
 
 for (let i = 0; i < allFilms.length; ++i) {
@@ -141,7 +132,7 @@ dropdownFilms.addEventListener('change', function () {
 let dropdownDirector = document.getElementById("selectDirector");
 
 let allDirectors = new Set(); // crear un nuevo set (array iterable) sin repetir un elemento
-
+// let allDirectors = [];
 for (let i = 0; i < allFilms.length; ++i) {
     let film = allFilms[i];
     allDirectors.add(film.director); // se agregan los elementos al set

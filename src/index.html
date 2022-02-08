@@ -22,7 +22,7 @@
         <p>Studio Ghibli, Inc. (株式会社スタジオジブリ, Kabushiki-gaisha Sutajio Jiburi) is a Japanese movie studio in Koganei, Tokyo. It produced anime movies. It has won many awards for some of its movies, including an Academy Award for Spirited Away. The company was established by Hayao Miyazaki in 1985. The name comes from the Arabic word ghibli, for hot winds blowing from the Sahara Desert. The main focus of Ghibli is to produce long animations, but they have produced short animations since the middle of 1990. Their movies often satirize the society at that time. The company tends to choose famous actors from television or movies as their voice actors.</p>
         <p>They also have a museum located in Mitaka.</p>
         </div>
-      <img src="images/inicio/princesamononoke.svg" width="35%";>
+      <img src="images/inicio/princesamononoke.svg" width="35%">
     </div>
 
   </header>
@@ -39,7 +39,7 @@
         <span class="close">&times;</span>
         <div class="FilmInfo">
           <div class="Img">
-            <img id="TarjetaFilmPoster" src="" class="AllPosters">
+            <img id="TarjetaFilmPoster" class="AllPosters">
           </div>
           <div class="FilmInfoText">
             <h2 id="Director"> </h2>
@@ -47,7 +47,6 @@
             <p class="MainDesign" id="TarjetaFilmP"> </p>
             <div id="RT_S" class="RottenTomatoes">
               <div id="myYear" class="Year"></div>
-              <!-- <img id = "RT_icon" url = "images/icons/rottentomatoes.svg" width="24"> -->
               <div class="icon_Rtscore">
                 <svg class="RT_icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24">
                   <title>Rotten Tomatoes</title>
@@ -60,9 +59,9 @@
             <div id="char" class="char">
               <span><h2>Characters</h2></span>
               <form id="GenderSort" class="Dropdown">
-                <label for="GenderSort">Sort</label>
+                <label for="GenderSort">Filter by Gender</label>
                 <select name="Sortby" id="selectGender">
-                  <option value="default">--</option>
+                  <option value="default" selected>---</option>
                   <option value="Female">Female</option>
                   <option value="Male">Male</option>
                   <option value="NA">NA</option>
@@ -74,8 +73,8 @@
 
         <div id="Characters" class="containerChar"></div>
       </div>
+    </div> 
   </article>
-
 
   <main>
     <!-- posters and field para filtrar y ordenar -->
@@ -91,14 +90,13 @@
     <form id="DropdownSort" class="Dropdown">
       <label for="DropdownSort">Sort</label>
       <select name="Sortby" id="selectSort">
-        <option value="default">--</option>
+        <option value="default">---</option>
         <option value="Newest">Newest First</option>
         <option value="Oldest">Oldest First</option>
         <option value="A_Z">A-Z</option>
         <option value="Z_A">Z-A</option>
       </select>
     </form>
-  </div>
 
     <form id="DropdownDirector" class="Dropdown">
       <label for="DropdownDirector">Director</label>
@@ -106,6 +104,7 @@
         <option value="default">--</option>
       </select>
     </form>
+  </div>
 
     <div id="Posters" class="ImgContainers"></div>
   </main>
