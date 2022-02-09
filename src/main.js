@@ -64,7 +64,7 @@ const modalDisplay = (film) => { // Función modal box de tarjeta de película
             const imgChar = (arrayCharacters, nameCharacter) => { //constante que toma la función de retornar un div por cada personaje
                 return `<div class="subContainerChar">
                 <div class="imgChar">
-                <img src="${arrayCharacters}" width="150">
+                <img src="${imgCharacter}" width="150">
                 </div>
                 <div class="nameChar">
                 <p>${nameCharacter}</p>
