@@ -8,7 +8,6 @@ Las animaciones tienen gran acogida a nivel mundial y algunas han recibido
 varias nominaciones y premios. De todo este fandom hay un grupo que desea poder
 interactuar y ver la información de las animaciones y sus personajes.
 
-****
 
 ## Sobre la aplicación
 
@@ -51,7 +50,7 @@ A partir de los hallazgos se completaron las siguientes sentencias:
 |Yo como|Quiero|Para lograrlo|
 |--------|--------|--------|
 |Seguidor principiante de Studio Ghibli|Saber información más detallada por cada pelicula, incluyendo a los personajes.|Ingresar a la página principal, hacer click en uno de los poster o seleccionar un título desde el selctor de películas, se mostrará una tarjeta de película con la información|
-|Seguidor principiante de Studio Ghibli|Buscar peliculas por director|Ver selector Directors, elegir un nombre de director y ver las películas que aparecen|
+|Seguidor principiante de Studio Ghibli|Buscar películas por director|Ver selector Directors, elegir un nombre de director y ver las películas que aparecen|
 |Seguidor principiante de Studio Ghibli|Ordenar por año de lanzamiento y ver desde la más reciente a la más antigua y viceversa|Ver selector Sort y elegir entre oldest o newest|
 
 
