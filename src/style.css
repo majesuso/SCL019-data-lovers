@@ -81,8 +81,10 @@ h2{
   /* border: 1px solid aliceblue; */
 }
 
-.dropdown {
-  background-color: aliceblue;
+.Dropdown {
+  border-radius: 4em;
+  background-color: var(aliceblue);
+  color: var(black);
 }
 
 .EachPoster { /* cada poster */
