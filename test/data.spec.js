@@ -1,4 +1,4 @@
-import { sortOldest, sortDataYear, filtredDirector, filtredFilm } from '../src/data.js';
+import { sortOldest, sortDataYear, sortAZ, sortZA, filtredDirector, filtredFilm } from '../src/data.js';
 
 const FilmData = [
   {
@@ -61,7 +61,7 @@ describe('sortDataYear returns Films in order from newest to oldest', () => {
     expect(dataYear[1].title).toEqual('Spirited Away');
     expect(dataYear[2].title).toEqual('My Neighbor Totoro');
     expect(dataYear[3].title).toEqual('Castle in the Sky');
-  
+
   });
 });
 
@@ -98,5 +98,37 @@ describe('filtredFilm return film id', () => {
 });
 
 //sorted A-Z
+describe('sortAZ returns films in ordered from A to Z', () => {
+  it('is a function', () => {
+    expect(typeof sortAZ).toBe('function');
+  });
+
+  it('return films like [Castle in the Sky],[From Up on Poppy Hill],[My Neighbor Totoro],[Spirited Away]', () => {
+
+    let dataAscendant = sortAZ(FilmData);
+
+    expect(dataAscendant[0].title).toEqual('Castle in the Sky');
+    expect(dataAscendant[1].title).toEqual('From Up on Poppy Hill');
+    expect(dataAscendant[2].title).toEqual('My Neighbor Totoro');
+    expect(dataAscendant[3].title).toEqual('Spirited Away');
+  });
+});
 //sorted Z-A
+
+describe('sortZA returns films in ordered from Z to A', () => {
+  it('is a funcition',() =>{
+    expect(typeof sortZA).toBe('function');
+  });
+
+  it('return films like [Spirited Away],[My Neighbor Totoro],[From Up on Poppy Hill],[Castle in the Sky]', () => {
+
+    let dataDescending = sortZA(FilmData);
+
+    expect(dataDescending[0].title).toEqual('Spirited Away');
+    expect(dataDescending[1].title).toEqual('My Neighbor Totoro');
+    expect(dataDescending[2].title).toEqual('From Up on Poppy Hill');
+    expect(dataDescending[3].title).toEqual('Castle in the Sky');
+  });
+});
+
 //filtred filtredGender

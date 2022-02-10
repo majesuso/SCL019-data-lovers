@@ -54,8 +54,6 @@ const modalDisplay = (film) => { // Función modal box de tarjeta de película
 
         // ******************** DATA DE PERSONAJES ********************
         let arrayCharacters = filmArray.people //Toma la propiedad de people del array de filmSelected 
-        //Recorre el array de people del film seleccionado
-
         const charContainer = document.getElementById("Characters"); //Llama a un div de html
         charContainer.innerHTML = ""; // vacia este container before use
 
@@ -64,7 +62,7 @@ const modalDisplay = (film) => { // Función modal box de tarjeta de película
             const imgChar = (arrayCharacters, nameCharacter) => { //constante que toma la función de retornar un div por cada personaje
                 return `<div class="subContainerChar">
                 <div class="imgChar">
-                <img src="${imgCharacter}" width="150">
+                <img src="${arrayCharacters}" width="150">
                 </div>
                 <div class="nameChar">
                 <p>${nameCharacter}</p>
@@ -72,7 +70,7 @@ const modalDisplay = (film) => { // Función modal box de tarjeta de película
                 </div>`;
             }
 
-            charContainer.innerHTML += imgChar(arrayCharacters[i].img, nameCharacter)//se le suma la url de img mas nombre a cada div
+            charContainer.innerHTML += imgChar(arrayCharacters[i].img, nameCharacter);//se le suma la url de img mas nombre a cada div
            
             let dropdownGender = document.getElementById("selectGender");
             dropdownGender.selectedIndex = 0;
