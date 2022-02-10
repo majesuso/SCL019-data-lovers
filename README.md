@@ -1,5 +1,7 @@
 # Studio Ghibli
 
+- Link proyecto: [Ir al sitio final](https://majesuso.github.io/SCL019-data-lovers//src/index.html)
+
 Studio Ghibli es un estudio de animación japonés, conocido por sus largometrajes
 animados como **Mi vecino Totoro**, **El viaje de Chihiro** o
 **El castillo ambulante**, entre otros grandes éxitos.
